@@ -15,11 +15,18 @@ provider "aws" {
   region = coalesce([for x in var.regions: x.region if x.alias == "ireland"])
 }
 
-module "vpc" {
+module "vpc_frankfurt" {
+  source = "./vpc"
+  providers = {
+    aws.main = "aws.frankfurt"
+  }
+  cidr_block = format("10.%s.0.0/16", coalesce([for x in var.regions: x.position if x.alias == "frankfurt"]))
+}
+
+module "vpc_ireland" {
   source = "./vpc"
   providers = {
     aws.main = "aws.ireland"
   }
   cidr_block = format("10.%s.0.0/16", coalesce([for x in var.regions: x.position if x.alias == "ireland"]))
-
 }
