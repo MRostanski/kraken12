@@ -7,7 +7,7 @@ variable "regions" {
 }
 provider "aws" {
   alias = "frankfurt"
-  region = coalesce([for x in var.regions: x.region if x.alias == "frankfurt"])
+  region = [for x in var.regions: x.region if x.alias == "frankfurt"][0]
 }
 
 provider "aws" {
@@ -20,7 +20,7 @@ module "vpc_frankfurt" {
   providers = {
     aws.main = "aws.frankfurt"
   }
-  cidr_block = format("10.%s.0.0/16", coalesce([for x in var.regions: x.position if x.alias == "frankfurt"]))
+  cidr_block = [for x in var.regions: x.position if x.alias == "frankfurt"][0]
 }
 
 module "vpc_ireland" {
@@ -28,5 +28,5 @@ module "vpc_ireland" {
   providers = {
     aws.main = "aws.ireland"
   }
-  cidr_block = format("10.%s.0.0/16", coalesce([for x in var.regions: x.position if x.alias == "ireland"]))
+  cidr_block = coalesce([for x in var.regions: x.position if x.alias == "ireland"])
 }
