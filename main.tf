@@ -28,5 +28,5 @@ module "vpc_ireland" {
   providers = {
     aws.main = "aws.ireland"
   }
-  cidr_block = join(".", ["10", coalesce([for x in var.regions: x.position if x.alias == "ireland"]), "0", "0/16"])
+  cidr_block = join(".", ["10", [for x in var.regions: x.position if x.alias == "ireland"][0], "0", "0/16"])
 }
