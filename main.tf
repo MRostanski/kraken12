@@ -20,7 +20,7 @@ module "vpc_frankfurt" {
   providers = {
     aws.main = "aws.frankfurt"
   }
-  cidr_block = [for x in var.regions: x.position if x.alias == "frankfurt"][0]
+  cidr_block = format("10.%s.0.0/16", [for x in var.regions: x.position if x.alias == "frankfurt"][0])
 }
 
 module "vpc_ireland" {
@@ -28,5 +28,5 @@ module "vpc_ireland" {
   providers = {
     aws.main = "aws.ireland"
   }
-  cidr_block = join(".", 10, coalesce([for x in var.regions: x.position if x.alias == "ireland"]), "0", "0/16")
+  cidr_block = join(".", ["10", coalesce([for x in var.regions: x.position if x.alias == "ireland"]), "0", "0/16"])
 }
