@@ -12,7 +12,7 @@ provider "aws" {
 
 provider "aws" {
   alias = "ireland"
-  region = coalesce([for x in var.regions: x.region if x.alias == "ireland"])
+  region = coalesce([for x in var.regions: x.region if x.alias == "ireland"]...)
 }
 
 module "vpc_frankfurt" {
