@@ -51,3 +51,9 @@ vpcs:
   - name: saopaulo
     region: sa-east-1
     cidr: 10.17.0.0/16
+tags:
+  - key: Environment
+    value: Kraken
+  - key: Author
+    value: MRostanski
+  

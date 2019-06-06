@@ -1,126 +1,301 @@
+data "aws_caller_identity" "main" {}
+variable "aws_profile" {
+  type = "string"
+}
 provider "aws" {
-  alias = "aws.frankfurt"
+  alias = "frankfurt"
   region = "eu-central-1"
-  version = "~> 2.13"
+  version = "~> 2.11"
   profile = "${var.aws_profile}"
 }
 
 provider "aws" {
-  alias = "aws.ireland"
+  alias = "ireland"
   region = "eu-west-1"
-  version = "~> 2.13"
+  version = "~> 2.11"
   profile = "${var.aws_profile}"
 }
 
 provider "aws" {
-  alias = "aws.london"
+  alias = "london"
   region = "eu-west-2"
-  version = "~> 2.13"
+  version = "~> 2.11"
   profile = "${var.aws_profile}"
 }
 
 provider "aws" {
-  alias = "aws.paris"
+  alias = "paris"
   region = "eu-west-3"
-  version = "~> 2.13"
+  version = "~> 2.11"
   profile = "${var.aws_profile}"
 }
 
 provider "aws" {
-  alias = "aws.stockholm"
+  alias = "stockholm"
   region = "eu-north-1"
-  version = "~> 2.13"
+  version = "~> 2.11"
   profile = "${var.aws_profile}"
 }
 
 provider "aws" {
-  alias = "aws.virginia"
+  alias = "virginia"
   region = "us-east-1"
-  version = "~> 2.13"
+  version = "~> 2.11"
   profile = "${var.aws_profile}"
 }
 
 provider "aws" {
-  alias = "aws.ohio"
+  alias = "ohio"
   region = "us-east-2"
-  version = "~> 2.13"
+  version = "~> 2.11"
   profile = "${var.aws_profile}"
 }
 
 provider "aws" {
-  alias = "aws.california"
+  alias = "california"
   region = "us-west-1"
-  version = "~> 2.13"
+  version = "~> 2.11"
   profile = "${var.aws_profile}"
 }
 
 provider "aws" {
-  alias = "aws.oregon"
+  alias = "oregon"
   region = "us-west-2"
-  version = "~> 2.13"
+  version = "~> 2.11"
   profile = "${var.aws_profile}"
 }
 
 provider "aws" {
-  alias = "aws.canada"
+  alias = "canada"
   region = "ca-central-1"
-  version = "~> 2.13"
+  version = "~> 2.11"
   profile = "${var.aws_profile}"
 }
 
 provider "aws" {
-  alias = "aws.hongkong"
+  alias = "hongkong"
   region = "ap-east-1"
-  version = "~> 2.13"
+  version = "~> 2.11"
   profile = "${var.aws_profile}"
 }
 
 provider "aws" {
-  alias = "aws.mumbai"
+  alias = "mumbai"
   region = "ap-south-1"
-  version = "~> 2.13"
+  version = "~> 2.11"
   profile = "${var.aws_profile}"
 }
 
 provider "aws" {
-  alias = "aws.seoul"
+  alias = "seoul"
   region = "ap-northeast-2"
-  version = "~> 2.13"
+  version = "~> 2.11"
   profile = "${var.aws_profile}"
 }
 
 provider "aws" {
-  alias = "aws.singapore"
+  alias = "singapore"
   region = "ap-southeast-1"
-  version = "~> 2.13"
+  version = "~> 2.11"
   profile = "${var.aws_profile}"
 }
 
 provider "aws" {
-  alias = "aws.sydney"
+  alias = "sydney"
   region = "ap-southeast-2"
-  version = "~> 2.13"
+  version = "~> 2.11"
   profile = "${var.aws_profile}"
 }
 
 provider "aws" {
-  alias = "aws.tokio"
+  alias = "tokio"
   region = "ap-northeast-1"
-  version = "~> 2.13"
+  version = "~> 2.11"
   profile = "${var.aws_profile}"
 }
 
 provider "aws" {
-  alias = "aws.saopaulo"
+  alias = "saopaulo"
   region = "sa-east-1"
-  version = "~> 2.13"
+  version = "~> 2.11"
   profile = "${var.aws_profile}"
+}
+
+
+resource "aws_vpc" "frankfurt" {
+  cidr_block = "10.1.0.0/16"
+  enable_dns_hostnames = "true"
+  tags = {
+    Name = "Kraken-frankfurt-VPC"
+    Environment = "Kraken"
+    Author = "MRostanski"
+  }
+}
+
+resource "aws_vpc" "ireland" {
+  cidr_block = "10.2.0.0/16"
+  enable_dns_hostnames = "true"
+  tags = {
+    Name = "Kraken-ireland-VPC"
+    Environment = "Kraken"
+    Author = "MRostanski"
+  }
+}
+
+resource "aws_vpc" "london" {
+  cidr_block = "10.3.0.0/16"
+  enable_dns_hostnames = "true"
+  tags = {
+    Name = "Kraken-london-VPC"
+    Environment = "Kraken"
+    Author = "MRostanski"
+  }
+}
+
+resource "aws_vpc" "paris" {
+  cidr_block = "10.4.0.0/16"
+  enable_dns_hostnames = "true"
+  tags = {
+    Name = "Kraken-paris-VPC"
+    Environment = "Kraken"
+    Author = "MRostanski"
+  }
+}
+
+resource "aws_vpc" "stockholm" {
+  cidr_block = "10.5.0.0/16"
+  enable_dns_hostnames = "true"
+  tags = {
+    Name = "Kraken-stockholm-VPC"
+    Environment = "Kraken"
+    Author = "MRostanski"
+  }
+}
+
+resource "aws_vpc" "virginia" {
+  cidr_block = "10.6.0.0/16"
+  enable_dns_hostnames = "true"
+  tags = {
+    Name = "Kraken-virginia-VPC"
+    Environment = "Kraken"
+    Author = "MRostanski"
+  }
+}
+
+resource "aws_vpc" "ohio" {
+  cidr_block = "10.7.0.0/16"
+  enable_dns_hostnames = "true"
+  tags = {
+    Name = "Kraken-ohio-VPC"
+    Environment = "Kraken"
+    Author = "MRostanski"
+  }
+}
+
+resource "aws_vpc" "california" {
+  cidr_block = "10.8.0.0/16"
+  enable_dns_hostnames = "true"
+  tags = {
+    Name = "Kraken-california-VPC"
+    Environment = "Kraken"
+    Author = "MRostanski"
+  }
+}
+
+resource "aws_vpc" "oregon" {
+  cidr_block = "10.9.0.0/16"
+  enable_dns_hostnames = "true"
+  tags = {
+    Name = "Kraken-oregon-VPC"
+    Environment = "Kraken"
+    Author = "MRostanski"
+  }
+}
+
+resource "aws_vpc" "canada" {
+  cidr_block = "10.10.0.0/16"
+  enable_dns_hostnames = "true"
+  tags = {
+    Name = "Kraken-canada-VPC"
+    Environment = "Kraken"
+    Author = "MRostanski"
+  }
+}
+
+resource "aws_vpc" "hongkong" {
+  cidr_block = "10.11.0.0/16"
+  enable_dns_hostnames = "true"
+  tags = {
+    Name = "Kraken-hongkong-VPC"
+    Environment = "Kraken"
+    Author = "MRostanski"
+  }
+}
+
+resource "aws_vpc" "mumbai" {
+  cidr_block = "10.12.0.0/16"
+  enable_dns_hostnames = "true"
+  tags = {
+    Name = "Kraken-mumbai-VPC"
+    Environment = "Kraken"
+    Author = "MRostanski"
+  }
+}
+
+resource "aws_vpc" "seoul" {
+  cidr_block = "10.13.0.0/16"
+  enable_dns_hostnames = "true"
+  tags = {
+    Name = "Kraken-seoul-VPC"
+    Environment = "Kraken"
+    Author = "MRostanski"
+  }
+}
+
+resource "aws_vpc" "singapore" {
+  cidr_block = "10.14.0.0/16"
+  enable_dns_hostnames = "true"
+  tags = {
+    Name = "Kraken-singapore-VPC"
+    Environment = "Kraken"
+    Author = "MRostanski"
+  }
+}
+
+resource "aws_vpc" "sydney" {
+  cidr_block = "10.15.0.0/16"
+  enable_dns_hostnames = "true"
+  tags = {
+    Name = "Kraken-sydney-VPC"
+    Environment = "Kraken"
+    Author = "MRostanski"
+  }
+}
+
+resource "aws_vpc" "tokio" {
+  cidr_block = "10.16.0.0/16"
+  enable_dns_hostnames = "true"
+  tags = {
+    Name = "Kraken-tokio-VPC"
+    Environment = "Kraken"
+    Author = "MRostanski"
+  }
+}
+
+resource "aws_vpc" "saopaulo" {
+  cidr_block = "10.17.0.0/16"
+  enable_dns_hostnames = "true"
+  tags = {
+    Name = "Kraken-saopaulo-VPC"
+    Environment = "Kraken"
+    Author = "MRostanski"
+  }
 }
 
 
 # connector: frankfurt, to: ireland
 resource "aws_vpc_peering_connection" "frankfurt_to_ireland" {
-  provider = aws.frankfurt
+  provider = "aws.frankfurt"
   vpc_id = "${aws_vpc.frankfurt.id}"
   peer_vpc_id = "${aws_vpc.ireland.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -134,7 +309,7 @@ resource "aws_vpc_peering_connection" "frankfurt_to_ireland" {
 
 # connector: frankfurt, to: london
 resource "aws_vpc_peering_connection" "frankfurt_to_london" {
-  provider = aws.frankfurt
+  provider = "aws.frankfurt"
   vpc_id = "${aws_vpc.frankfurt.id}"
   peer_vpc_id = "${aws_vpc.london.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -148,7 +323,7 @@ resource "aws_vpc_peering_connection" "frankfurt_to_london" {
 
 # connector: frankfurt, to: paris
 resource "aws_vpc_peering_connection" "frankfurt_to_paris" {
-  provider = aws.frankfurt
+  provider = "aws.frankfurt"
   vpc_id = "${aws_vpc.frankfurt.id}"
   peer_vpc_id = "${aws_vpc.paris.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -162,7 +337,7 @@ resource "aws_vpc_peering_connection" "frankfurt_to_paris" {
 
 # connector: frankfurt, to: stockholm
 resource "aws_vpc_peering_connection" "frankfurt_to_stockholm" {
-  provider = aws.frankfurt
+  provider = "aws.frankfurt"
   vpc_id = "${aws_vpc.frankfurt.id}"
   peer_vpc_id = "${aws_vpc.stockholm.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -176,7 +351,7 @@ resource "aws_vpc_peering_connection" "frankfurt_to_stockholm" {
 
 # connector: frankfurt, to: virginia
 resource "aws_vpc_peering_connection" "frankfurt_to_virginia" {
-  provider = aws.frankfurt
+  provider = "aws.frankfurt"
   vpc_id = "${aws_vpc.frankfurt.id}"
   peer_vpc_id = "${aws_vpc.virginia.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -190,7 +365,7 @@ resource "aws_vpc_peering_connection" "frankfurt_to_virginia" {
 
 # connector: frankfurt, to: ohio
 resource "aws_vpc_peering_connection" "frankfurt_to_ohio" {
-  provider = aws.frankfurt
+  provider = "aws.frankfurt"
   vpc_id = "${aws_vpc.frankfurt.id}"
   peer_vpc_id = "${aws_vpc.ohio.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -204,7 +379,7 @@ resource "aws_vpc_peering_connection" "frankfurt_to_ohio" {
 
 # connector: frankfurt, to: california
 resource "aws_vpc_peering_connection" "frankfurt_to_california" {
-  provider = aws.frankfurt
+  provider = "aws.frankfurt"
   vpc_id = "${aws_vpc.frankfurt.id}"
   peer_vpc_id = "${aws_vpc.california.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -218,7 +393,7 @@ resource "aws_vpc_peering_connection" "frankfurt_to_california" {
 
 # connector: frankfurt, to: oregon
 resource "aws_vpc_peering_connection" "frankfurt_to_oregon" {
-  provider = aws.frankfurt
+  provider = "aws.frankfurt"
   vpc_id = "${aws_vpc.frankfurt.id}"
   peer_vpc_id = "${aws_vpc.oregon.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -232,7 +407,7 @@ resource "aws_vpc_peering_connection" "frankfurt_to_oregon" {
 
 # connector: frankfurt, to: canada
 resource "aws_vpc_peering_connection" "frankfurt_to_canada" {
-  provider = aws.frankfurt
+  provider = "aws.frankfurt"
   vpc_id = "${aws_vpc.frankfurt.id}"
   peer_vpc_id = "${aws_vpc.canada.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -246,7 +421,7 @@ resource "aws_vpc_peering_connection" "frankfurt_to_canada" {
 
 # connector: frankfurt, to: hongkong
 resource "aws_vpc_peering_connection" "frankfurt_to_hongkong" {
-  provider = aws.frankfurt
+  provider = "aws.frankfurt"
   vpc_id = "${aws_vpc.frankfurt.id}"
   peer_vpc_id = "${aws_vpc.hongkong.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -260,7 +435,7 @@ resource "aws_vpc_peering_connection" "frankfurt_to_hongkong" {
 
 # connector: frankfurt, to: mumbai
 resource "aws_vpc_peering_connection" "frankfurt_to_mumbai" {
-  provider = aws.frankfurt
+  provider = "aws.frankfurt"
   vpc_id = "${aws_vpc.frankfurt.id}"
   peer_vpc_id = "${aws_vpc.mumbai.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -274,7 +449,7 @@ resource "aws_vpc_peering_connection" "frankfurt_to_mumbai" {
 
 # connector: frankfurt, to: seoul
 resource "aws_vpc_peering_connection" "frankfurt_to_seoul" {
-  provider = aws.frankfurt
+  provider = "aws.frankfurt"
   vpc_id = "${aws_vpc.frankfurt.id}"
   peer_vpc_id = "${aws_vpc.seoul.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -288,7 +463,7 @@ resource "aws_vpc_peering_connection" "frankfurt_to_seoul" {
 
 # connector: frankfurt, to: singapore
 resource "aws_vpc_peering_connection" "frankfurt_to_singapore" {
-  provider = aws.frankfurt
+  provider = "aws.frankfurt"
   vpc_id = "${aws_vpc.frankfurt.id}"
   peer_vpc_id = "${aws_vpc.singapore.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -302,7 +477,7 @@ resource "aws_vpc_peering_connection" "frankfurt_to_singapore" {
 
 # connector: frankfurt, to: sydney
 resource "aws_vpc_peering_connection" "frankfurt_to_sydney" {
-  provider = aws.frankfurt
+  provider = "aws.frankfurt"
   vpc_id = "${aws_vpc.frankfurt.id}"
   peer_vpc_id = "${aws_vpc.sydney.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -316,7 +491,7 @@ resource "aws_vpc_peering_connection" "frankfurt_to_sydney" {
 
 # connector: frankfurt, to: tokio
 resource "aws_vpc_peering_connection" "frankfurt_to_tokio" {
-  provider = aws.frankfurt
+  provider = "aws.frankfurt"
   vpc_id = "${aws_vpc.frankfurt.id}"
   peer_vpc_id = "${aws_vpc.tokio.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -330,7 +505,7 @@ resource "aws_vpc_peering_connection" "frankfurt_to_tokio" {
 
 # connector: frankfurt, to: saopaulo
 resource "aws_vpc_peering_connection" "frankfurt_to_saopaulo" {
-  provider = aws.frankfurt
+  provider = "aws.frankfurt"
   vpc_id = "${aws_vpc.frankfurt.id}"
   peer_vpc_id = "${aws_vpc.saopaulo.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -344,7 +519,7 @@ resource "aws_vpc_peering_connection" "frankfurt_to_saopaulo" {
 
 # accepter: ireland, from: frankfurt
 resource "aws_vpc_peering_connection_accepter" "ireland_from_frankfurt" {
-  provider = aws.ireland
+  provider = "aws.ireland"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.frankfurt_to_ireland.id}"
   auto_accept = true
 
@@ -355,7 +530,7 @@ resource "aws_vpc_peering_connection_accepter" "ireland_from_frankfurt" {
 
 # connector: ireland, to: london
 resource "aws_vpc_peering_connection" "ireland_to_london" {
-  provider = aws.ireland
+  provider = "aws.ireland"
   vpc_id = "${aws_vpc.ireland.id}"
   peer_vpc_id = "${aws_vpc.london.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -369,7 +544,7 @@ resource "aws_vpc_peering_connection" "ireland_to_london" {
 
 # connector: ireland, to: paris
 resource "aws_vpc_peering_connection" "ireland_to_paris" {
-  provider = aws.ireland
+  provider = "aws.ireland"
   vpc_id = "${aws_vpc.ireland.id}"
   peer_vpc_id = "${aws_vpc.paris.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -383,7 +558,7 @@ resource "aws_vpc_peering_connection" "ireland_to_paris" {
 
 # connector: ireland, to: stockholm
 resource "aws_vpc_peering_connection" "ireland_to_stockholm" {
-  provider = aws.ireland
+  provider = "aws.ireland"
   vpc_id = "${aws_vpc.ireland.id}"
   peer_vpc_id = "${aws_vpc.stockholm.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -397,7 +572,7 @@ resource "aws_vpc_peering_connection" "ireland_to_stockholm" {
 
 # connector: ireland, to: virginia
 resource "aws_vpc_peering_connection" "ireland_to_virginia" {
-  provider = aws.ireland
+  provider = "aws.ireland"
   vpc_id = "${aws_vpc.ireland.id}"
   peer_vpc_id = "${aws_vpc.virginia.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -411,7 +586,7 @@ resource "aws_vpc_peering_connection" "ireland_to_virginia" {
 
 # connector: ireland, to: ohio
 resource "aws_vpc_peering_connection" "ireland_to_ohio" {
-  provider = aws.ireland
+  provider = "aws.ireland"
   vpc_id = "${aws_vpc.ireland.id}"
   peer_vpc_id = "${aws_vpc.ohio.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -425,7 +600,7 @@ resource "aws_vpc_peering_connection" "ireland_to_ohio" {
 
 # connector: ireland, to: california
 resource "aws_vpc_peering_connection" "ireland_to_california" {
-  provider = aws.ireland
+  provider = "aws.ireland"
   vpc_id = "${aws_vpc.ireland.id}"
   peer_vpc_id = "${aws_vpc.california.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -439,7 +614,7 @@ resource "aws_vpc_peering_connection" "ireland_to_california" {
 
 # connector: ireland, to: oregon
 resource "aws_vpc_peering_connection" "ireland_to_oregon" {
-  provider = aws.ireland
+  provider = "aws.ireland"
   vpc_id = "${aws_vpc.ireland.id}"
   peer_vpc_id = "${aws_vpc.oregon.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -453,7 +628,7 @@ resource "aws_vpc_peering_connection" "ireland_to_oregon" {
 
 # connector: ireland, to: canada
 resource "aws_vpc_peering_connection" "ireland_to_canada" {
-  provider = aws.ireland
+  provider = "aws.ireland"
   vpc_id = "${aws_vpc.ireland.id}"
   peer_vpc_id = "${aws_vpc.canada.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -467,7 +642,7 @@ resource "aws_vpc_peering_connection" "ireland_to_canada" {
 
 # connector: ireland, to: hongkong
 resource "aws_vpc_peering_connection" "ireland_to_hongkong" {
-  provider = aws.ireland
+  provider = "aws.ireland"
   vpc_id = "${aws_vpc.ireland.id}"
   peer_vpc_id = "${aws_vpc.hongkong.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -481,7 +656,7 @@ resource "aws_vpc_peering_connection" "ireland_to_hongkong" {
 
 # connector: ireland, to: mumbai
 resource "aws_vpc_peering_connection" "ireland_to_mumbai" {
-  provider = aws.ireland
+  provider = "aws.ireland"
   vpc_id = "${aws_vpc.ireland.id}"
   peer_vpc_id = "${aws_vpc.mumbai.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -495,7 +670,7 @@ resource "aws_vpc_peering_connection" "ireland_to_mumbai" {
 
 # connector: ireland, to: seoul
 resource "aws_vpc_peering_connection" "ireland_to_seoul" {
-  provider = aws.ireland
+  provider = "aws.ireland"
   vpc_id = "${aws_vpc.ireland.id}"
   peer_vpc_id = "${aws_vpc.seoul.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -509,7 +684,7 @@ resource "aws_vpc_peering_connection" "ireland_to_seoul" {
 
 # connector: ireland, to: singapore
 resource "aws_vpc_peering_connection" "ireland_to_singapore" {
-  provider = aws.ireland
+  provider = "aws.ireland"
   vpc_id = "${aws_vpc.ireland.id}"
   peer_vpc_id = "${aws_vpc.singapore.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -523,7 +698,7 @@ resource "aws_vpc_peering_connection" "ireland_to_singapore" {
 
 # connector: ireland, to: sydney
 resource "aws_vpc_peering_connection" "ireland_to_sydney" {
-  provider = aws.ireland
+  provider = "aws.ireland"
   vpc_id = "${aws_vpc.ireland.id}"
   peer_vpc_id = "${aws_vpc.sydney.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -537,7 +712,7 @@ resource "aws_vpc_peering_connection" "ireland_to_sydney" {
 
 # connector: ireland, to: tokio
 resource "aws_vpc_peering_connection" "ireland_to_tokio" {
-  provider = aws.ireland
+  provider = "aws.ireland"
   vpc_id = "${aws_vpc.ireland.id}"
   peer_vpc_id = "${aws_vpc.tokio.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -551,7 +726,7 @@ resource "aws_vpc_peering_connection" "ireland_to_tokio" {
 
 # connector: ireland, to: saopaulo
 resource "aws_vpc_peering_connection" "ireland_to_saopaulo" {
-  provider = aws.ireland
+  provider = "aws.ireland"
   vpc_id = "${aws_vpc.ireland.id}"
   peer_vpc_id = "${aws_vpc.saopaulo.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -565,7 +740,7 @@ resource "aws_vpc_peering_connection" "ireland_to_saopaulo" {
 
 # accepter: london, from: frankfurt
 resource "aws_vpc_peering_connection_accepter" "london_from_frankfurt" {
-  provider = aws.london
+  provider = "aws.london"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.frankfurt_to_london.id}"
   auto_accept = true
 
@@ -576,7 +751,7 @@ resource "aws_vpc_peering_connection_accepter" "london_from_frankfurt" {
 
 # accepter: london, from: ireland
 resource "aws_vpc_peering_connection_accepter" "london_from_ireland" {
-  provider = aws.london
+  provider = "aws.london"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.ireland_to_london.id}"
   auto_accept = true
 
@@ -587,7 +762,7 @@ resource "aws_vpc_peering_connection_accepter" "london_from_ireland" {
 
 # connector: london, to: paris
 resource "aws_vpc_peering_connection" "london_to_paris" {
-  provider = aws.london
+  provider = "aws.london"
   vpc_id = "${aws_vpc.london.id}"
   peer_vpc_id = "${aws_vpc.paris.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -601,7 +776,7 @@ resource "aws_vpc_peering_connection" "london_to_paris" {
 
 # connector: london, to: stockholm
 resource "aws_vpc_peering_connection" "london_to_stockholm" {
-  provider = aws.london
+  provider = "aws.london"
   vpc_id = "${aws_vpc.london.id}"
   peer_vpc_id = "${aws_vpc.stockholm.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -615,7 +790,7 @@ resource "aws_vpc_peering_connection" "london_to_stockholm" {
 
 # connector: london, to: virginia
 resource "aws_vpc_peering_connection" "london_to_virginia" {
-  provider = aws.london
+  provider = "aws.london"
   vpc_id = "${aws_vpc.london.id}"
   peer_vpc_id = "${aws_vpc.virginia.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -629,7 +804,7 @@ resource "aws_vpc_peering_connection" "london_to_virginia" {
 
 # connector: london, to: ohio
 resource "aws_vpc_peering_connection" "london_to_ohio" {
-  provider = aws.london
+  provider = "aws.london"
   vpc_id = "${aws_vpc.london.id}"
   peer_vpc_id = "${aws_vpc.ohio.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -643,7 +818,7 @@ resource "aws_vpc_peering_connection" "london_to_ohio" {
 
 # connector: london, to: california
 resource "aws_vpc_peering_connection" "london_to_california" {
-  provider = aws.london
+  provider = "aws.london"
   vpc_id = "${aws_vpc.london.id}"
   peer_vpc_id = "${aws_vpc.california.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -657,7 +832,7 @@ resource "aws_vpc_peering_connection" "london_to_california" {
 
 # connector: london, to: oregon
 resource "aws_vpc_peering_connection" "london_to_oregon" {
-  provider = aws.london
+  provider = "aws.london"
   vpc_id = "${aws_vpc.london.id}"
   peer_vpc_id = "${aws_vpc.oregon.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -671,7 +846,7 @@ resource "aws_vpc_peering_connection" "london_to_oregon" {
 
 # connector: london, to: canada
 resource "aws_vpc_peering_connection" "london_to_canada" {
-  provider = aws.london
+  provider = "aws.london"
   vpc_id = "${aws_vpc.london.id}"
   peer_vpc_id = "${aws_vpc.canada.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -685,7 +860,7 @@ resource "aws_vpc_peering_connection" "london_to_canada" {
 
 # connector: london, to: hongkong
 resource "aws_vpc_peering_connection" "london_to_hongkong" {
-  provider = aws.london
+  provider = "aws.london"
   vpc_id = "${aws_vpc.london.id}"
   peer_vpc_id = "${aws_vpc.hongkong.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -699,7 +874,7 @@ resource "aws_vpc_peering_connection" "london_to_hongkong" {
 
 # connector: london, to: mumbai
 resource "aws_vpc_peering_connection" "london_to_mumbai" {
-  provider = aws.london
+  provider = "aws.london"
   vpc_id = "${aws_vpc.london.id}"
   peer_vpc_id = "${aws_vpc.mumbai.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -713,7 +888,7 @@ resource "aws_vpc_peering_connection" "london_to_mumbai" {
 
 # connector: london, to: seoul
 resource "aws_vpc_peering_connection" "london_to_seoul" {
-  provider = aws.london
+  provider = "aws.london"
   vpc_id = "${aws_vpc.london.id}"
   peer_vpc_id = "${aws_vpc.seoul.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -727,7 +902,7 @@ resource "aws_vpc_peering_connection" "london_to_seoul" {
 
 # connector: london, to: singapore
 resource "aws_vpc_peering_connection" "london_to_singapore" {
-  provider = aws.london
+  provider = "aws.london"
   vpc_id = "${aws_vpc.london.id}"
   peer_vpc_id = "${aws_vpc.singapore.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -741,7 +916,7 @@ resource "aws_vpc_peering_connection" "london_to_singapore" {
 
 # connector: london, to: sydney
 resource "aws_vpc_peering_connection" "london_to_sydney" {
-  provider = aws.london
+  provider = "aws.london"
   vpc_id = "${aws_vpc.london.id}"
   peer_vpc_id = "${aws_vpc.sydney.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -755,7 +930,7 @@ resource "aws_vpc_peering_connection" "london_to_sydney" {
 
 # connector: london, to: tokio
 resource "aws_vpc_peering_connection" "london_to_tokio" {
-  provider = aws.london
+  provider = "aws.london"
   vpc_id = "${aws_vpc.london.id}"
   peer_vpc_id = "${aws_vpc.tokio.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -769,7 +944,7 @@ resource "aws_vpc_peering_connection" "london_to_tokio" {
 
 # connector: london, to: saopaulo
 resource "aws_vpc_peering_connection" "london_to_saopaulo" {
-  provider = aws.london
+  provider = "aws.london"
   vpc_id = "${aws_vpc.london.id}"
   peer_vpc_id = "${aws_vpc.saopaulo.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -783,7 +958,7 @@ resource "aws_vpc_peering_connection" "london_to_saopaulo" {
 
 # accepter: paris, from: frankfurt
 resource "aws_vpc_peering_connection_accepter" "paris_from_frankfurt" {
-  provider = aws.paris
+  provider = "aws.paris"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.frankfurt_to_paris.id}"
   auto_accept = true
 
@@ -794,7 +969,7 @@ resource "aws_vpc_peering_connection_accepter" "paris_from_frankfurt" {
 
 # accepter: paris, from: ireland
 resource "aws_vpc_peering_connection_accepter" "paris_from_ireland" {
-  provider = aws.paris
+  provider = "aws.paris"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.ireland_to_paris.id}"
   auto_accept = true
 
@@ -805,7 +980,7 @@ resource "aws_vpc_peering_connection_accepter" "paris_from_ireland" {
 
 # accepter: paris, from: london
 resource "aws_vpc_peering_connection_accepter" "paris_from_london" {
-  provider = aws.paris
+  provider = "aws.paris"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.london_to_paris.id}"
   auto_accept = true
 
@@ -816,7 +991,7 @@ resource "aws_vpc_peering_connection_accepter" "paris_from_london" {
 
 # connector: paris, to: stockholm
 resource "aws_vpc_peering_connection" "paris_to_stockholm" {
-  provider = aws.paris
+  provider = "aws.paris"
   vpc_id = "${aws_vpc.paris.id}"
   peer_vpc_id = "${aws_vpc.stockholm.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -830,7 +1005,7 @@ resource "aws_vpc_peering_connection" "paris_to_stockholm" {
 
 # connector: paris, to: virginia
 resource "aws_vpc_peering_connection" "paris_to_virginia" {
-  provider = aws.paris
+  provider = "aws.paris"
   vpc_id = "${aws_vpc.paris.id}"
   peer_vpc_id = "${aws_vpc.virginia.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -844,7 +1019,7 @@ resource "aws_vpc_peering_connection" "paris_to_virginia" {
 
 # connector: paris, to: ohio
 resource "aws_vpc_peering_connection" "paris_to_ohio" {
-  provider = aws.paris
+  provider = "aws.paris"
   vpc_id = "${aws_vpc.paris.id}"
   peer_vpc_id = "${aws_vpc.ohio.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -858,7 +1033,7 @@ resource "aws_vpc_peering_connection" "paris_to_ohio" {
 
 # connector: paris, to: california
 resource "aws_vpc_peering_connection" "paris_to_california" {
-  provider = aws.paris
+  provider = "aws.paris"
   vpc_id = "${aws_vpc.paris.id}"
   peer_vpc_id = "${aws_vpc.california.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -872,7 +1047,7 @@ resource "aws_vpc_peering_connection" "paris_to_california" {
 
 # connector: paris, to: oregon
 resource "aws_vpc_peering_connection" "paris_to_oregon" {
-  provider = aws.paris
+  provider = "aws.paris"
   vpc_id = "${aws_vpc.paris.id}"
   peer_vpc_id = "${aws_vpc.oregon.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -886,7 +1061,7 @@ resource "aws_vpc_peering_connection" "paris_to_oregon" {
 
 # connector: paris, to: canada
 resource "aws_vpc_peering_connection" "paris_to_canada" {
-  provider = aws.paris
+  provider = "aws.paris"
   vpc_id = "${aws_vpc.paris.id}"
   peer_vpc_id = "${aws_vpc.canada.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -900,7 +1075,7 @@ resource "aws_vpc_peering_connection" "paris_to_canada" {
 
 # connector: paris, to: hongkong
 resource "aws_vpc_peering_connection" "paris_to_hongkong" {
-  provider = aws.paris
+  provider = "aws.paris"
   vpc_id = "${aws_vpc.paris.id}"
   peer_vpc_id = "${aws_vpc.hongkong.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -914,7 +1089,7 @@ resource "aws_vpc_peering_connection" "paris_to_hongkong" {
 
 # connector: paris, to: mumbai
 resource "aws_vpc_peering_connection" "paris_to_mumbai" {
-  provider = aws.paris
+  provider = "aws.paris"
   vpc_id = "${aws_vpc.paris.id}"
   peer_vpc_id = "${aws_vpc.mumbai.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -928,7 +1103,7 @@ resource "aws_vpc_peering_connection" "paris_to_mumbai" {
 
 # connector: paris, to: seoul
 resource "aws_vpc_peering_connection" "paris_to_seoul" {
-  provider = aws.paris
+  provider = "aws.paris"
   vpc_id = "${aws_vpc.paris.id}"
   peer_vpc_id = "${aws_vpc.seoul.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -942,7 +1117,7 @@ resource "aws_vpc_peering_connection" "paris_to_seoul" {
 
 # connector: paris, to: singapore
 resource "aws_vpc_peering_connection" "paris_to_singapore" {
-  provider = aws.paris
+  provider = "aws.paris"
   vpc_id = "${aws_vpc.paris.id}"
   peer_vpc_id = "${aws_vpc.singapore.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -956,7 +1131,7 @@ resource "aws_vpc_peering_connection" "paris_to_singapore" {
 
 # connector: paris, to: sydney
 resource "aws_vpc_peering_connection" "paris_to_sydney" {
-  provider = aws.paris
+  provider = "aws.paris"
   vpc_id = "${aws_vpc.paris.id}"
   peer_vpc_id = "${aws_vpc.sydney.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -970,7 +1145,7 @@ resource "aws_vpc_peering_connection" "paris_to_sydney" {
 
 # connector: paris, to: tokio
 resource "aws_vpc_peering_connection" "paris_to_tokio" {
-  provider = aws.paris
+  provider = "aws.paris"
   vpc_id = "${aws_vpc.paris.id}"
   peer_vpc_id = "${aws_vpc.tokio.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -984,7 +1159,7 @@ resource "aws_vpc_peering_connection" "paris_to_tokio" {
 
 # connector: paris, to: saopaulo
 resource "aws_vpc_peering_connection" "paris_to_saopaulo" {
-  provider = aws.paris
+  provider = "aws.paris"
   vpc_id = "${aws_vpc.paris.id}"
   peer_vpc_id = "${aws_vpc.saopaulo.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -998,7 +1173,7 @@ resource "aws_vpc_peering_connection" "paris_to_saopaulo" {
 
 # accepter: stockholm, from: frankfurt
 resource "aws_vpc_peering_connection_accepter" "stockholm_from_frankfurt" {
-  provider = aws.stockholm
+  provider = "aws.stockholm"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.frankfurt_to_stockholm.id}"
   auto_accept = true
 
@@ -1009,7 +1184,7 @@ resource "aws_vpc_peering_connection_accepter" "stockholm_from_frankfurt" {
 
 # accepter: stockholm, from: ireland
 resource "aws_vpc_peering_connection_accepter" "stockholm_from_ireland" {
-  provider = aws.stockholm
+  provider = "aws.stockholm"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.ireland_to_stockholm.id}"
   auto_accept = true
 
@@ -1020,7 +1195,7 @@ resource "aws_vpc_peering_connection_accepter" "stockholm_from_ireland" {
 
 # accepter: stockholm, from: london
 resource "aws_vpc_peering_connection_accepter" "stockholm_from_london" {
-  provider = aws.stockholm
+  provider = "aws.stockholm"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.london_to_stockholm.id}"
   auto_accept = true
 
@@ -1031,7 +1206,7 @@ resource "aws_vpc_peering_connection_accepter" "stockholm_from_london" {
 
 # accepter: stockholm, from: paris
 resource "aws_vpc_peering_connection_accepter" "stockholm_from_paris" {
-  provider = aws.stockholm
+  provider = "aws.stockholm"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.paris_to_stockholm.id}"
   auto_accept = true
 
@@ -1042,7 +1217,7 @@ resource "aws_vpc_peering_connection_accepter" "stockholm_from_paris" {
 
 # connector: stockholm, to: virginia
 resource "aws_vpc_peering_connection" "stockholm_to_virginia" {
-  provider = aws.stockholm
+  provider = "aws.stockholm"
   vpc_id = "${aws_vpc.stockholm.id}"
   peer_vpc_id = "${aws_vpc.virginia.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -1056,7 +1231,7 @@ resource "aws_vpc_peering_connection" "stockholm_to_virginia" {
 
 # connector: stockholm, to: ohio
 resource "aws_vpc_peering_connection" "stockholm_to_ohio" {
-  provider = aws.stockholm
+  provider = "aws.stockholm"
   vpc_id = "${aws_vpc.stockholm.id}"
   peer_vpc_id = "${aws_vpc.ohio.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -1070,7 +1245,7 @@ resource "aws_vpc_peering_connection" "stockholm_to_ohio" {
 
 # connector: stockholm, to: california
 resource "aws_vpc_peering_connection" "stockholm_to_california" {
-  provider = aws.stockholm
+  provider = "aws.stockholm"
   vpc_id = "${aws_vpc.stockholm.id}"
   peer_vpc_id = "${aws_vpc.california.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -1084,7 +1259,7 @@ resource "aws_vpc_peering_connection" "stockholm_to_california" {
 
 # connector: stockholm, to: oregon
 resource "aws_vpc_peering_connection" "stockholm_to_oregon" {
-  provider = aws.stockholm
+  provider = "aws.stockholm"
   vpc_id = "${aws_vpc.stockholm.id}"
   peer_vpc_id = "${aws_vpc.oregon.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -1098,7 +1273,7 @@ resource "aws_vpc_peering_connection" "stockholm_to_oregon" {
 
 # connector: stockholm, to: canada
 resource "aws_vpc_peering_connection" "stockholm_to_canada" {
-  provider = aws.stockholm
+  provider = "aws.stockholm"
   vpc_id = "${aws_vpc.stockholm.id}"
   peer_vpc_id = "${aws_vpc.canada.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -1112,7 +1287,7 @@ resource "aws_vpc_peering_connection" "stockholm_to_canada" {
 
 # connector: stockholm, to: hongkong
 resource "aws_vpc_peering_connection" "stockholm_to_hongkong" {
-  provider = aws.stockholm
+  provider = "aws.stockholm"
   vpc_id = "${aws_vpc.stockholm.id}"
   peer_vpc_id = "${aws_vpc.hongkong.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -1126,7 +1301,7 @@ resource "aws_vpc_peering_connection" "stockholm_to_hongkong" {
 
 # connector: stockholm, to: mumbai
 resource "aws_vpc_peering_connection" "stockholm_to_mumbai" {
-  provider = aws.stockholm
+  provider = "aws.stockholm"
   vpc_id = "${aws_vpc.stockholm.id}"
   peer_vpc_id = "${aws_vpc.mumbai.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -1140,7 +1315,7 @@ resource "aws_vpc_peering_connection" "stockholm_to_mumbai" {
 
 # connector: stockholm, to: seoul
 resource "aws_vpc_peering_connection" "stockholm_to_seoul" {
-  provider = aws.stockholm
+  provider = "aws.stockholm"
   vpc_id = "${aws_vpc.stockholm.id}"
   peer_vpc_id = "${aws_vpc.seoul.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -1154,7 +1329,7 @@ resource "aws_vpc_peering_connection" "stockholm_to_seoul" {
 
 # connector: stockholm, to: singapore
 resource "aws_vpc_peering_connection" "stockholm_to_singapore" {
-  provider = aws.stockholm
+  provider = "aws.stockholm"
   vpc_id = "${aws_vpc.stockholm.id}"
   peer_vpc_id = "${aws_vpc.singapore.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -1168,7 +1343,7 @@ resource "aws_vpc_peering_connection" "stockholm_to_singapore" {
 
 # connector: stockholm, to: sydney
 resource "aws_vpc_peering_connection" "stockholm_to_sydney" {
-  provider = aws.stockholm
+  provider = "aws.stockholm"
   vpc_id = "${aws_vpc.stockholm.id}"
   peer_vpc_id = "${aws_vpc.sydney.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -1182,7 +1357,7 @@ resource "aws_vpc_peering_connection" "stockholm_to_sydney" {
 
 # connector: stockholm, to: tokio
 resource "aws_vpc_peering_connection" "stockholm_to_tokio" {
-  provider = aws.stockholm
+  provider = "aws.stockholm"
   vpc_id = "${aws_vpc.stockholm.id}"
   peer_vpc_id = "${aws_vpc.tokio.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -1196,7 +1371,7 @@ resource "aws_vpc_peering_connection" "stockholm_to_tokio" {
 
 # connector: stockholm, to: saopaulo
 resource "aws_vpc_peering_connection" "stockholm_to_saopaulo" {
-  provider = aws.stockholm
+  provider = "aws.stockholm"
   vpc_id = "${aws_vpc.stockholm.id}"
   peer_vpc_id = "${aws_vpc.saopaulo.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -1210,7 +1385,7 @@ resource "aws_vpc_peering_connection" "stockholm_to_saopaulo" {
 
 # accepter: virginia, from: frankfurt
 resource "aws_vpc_peering_connection_accepter" "virginia_from_frankfurt" {
-  provider = aws.virginia
+  provider = "aws.virginia"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.frankfurt_to_virginia.id}"
   auto_accept = true
 
@@ -1221,7 +1396,7 @@ resource "aws_vpc_peering_connection_accepter" "virginia_from_frankfurt" {
 
 # accepter: virginia, from: ireland
 resource "aws_vpc_peering_connection_accepter" "virginia_from_ireland" {
-  provider = aws.virginia
+  provider = "aws.virginia"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.ireland_to_virginia.id}"
   auto_accept = true
 
@@ -1232,7 +1407,7 @@ resource "aws_vpc_peering_connection_accepter" "virginia_from_ireland" {
 
 # accepter: virginia, from: london
 resource "aws_vpc_peering_connection_accepter" "virginia_from_london" {
-  provider = aws.virginia
+  provider = "aws.virginia"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.london_to_virginia.id}"
   auto_accept = true
 
@@ -1243,7 +1418,7 @@ resource "aws_vpc_peering_connection_accepter" "virginia_from_london" {
 
 # accepter: virginia, from: paris
 resource "aws_vpc_peering_connection_accepter" "virginia_from_paris" {
-  provider = aws.virginia
+  provider = "aws.virginia"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.paris_to_virginia.id}"
   auto_accept = true
 
@@ -1254,7 +1429,7 @@ resource "aws_vpc_peering_connection_accepter" "virginia_from_paris" {
 
 # accepter: virginia, from: stockholm
 resource "aws_vpc_peering_connection_accepter" "virginia_from_stockholm" {
-  provider = aws.virginia
+  provider = "aws.virginia"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.stockholm_to_virginia.id}"
   auto_accept = true
 
@@ -1265,7 +1440,7 @@ resource "aws_vpc_peering_connection_accepter" "virginia_from_stockholm" {
 
 # connector: virginia, to: ohio
 resource "aws_vpc_peering_connection" "virginia_to_ohio" {
-  provider = aws.virginia
+  provider = "aws.virginia"
   vpc_id = "${aws_vpc.virginia.id}"
   peer_vpc_id = "${aws_vpc.ohio.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -1279,7 +1454,7 @@ resource "aws_vpc_peering_connection" "virginia_to_ohio" {
 
 # connector: virginia, to: california
 resource "aws_vpc_peering_connection" "virginia_to_california" {
-  provider = aws.virginia
+  provider = "aws.virginia"
   vpc_id = "${aws_vpc.virginia.id}"
   peer_vpc_id = "${aws_vpc.california.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -1293,7 +1468,7 @@ resource "aws_vpc_peering_connection" "virginia_to_california" {
 
 # connector: virginia, to: oregon
 resource "aws_vpc_peering_connection" "virginia_to_oregon" {
-  provider = aws.virginia
+  provider = "aws.virginia"
   vpc_id = "${aws_vpc.virginia.id}"
   peer_vpc_id = "${aws_vpc.oregon.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -1307,7 +1482,7 @@ resource "aws_vpc_peering_connection" "virginia_to_oregon" {
 
 # connector: virginia, to: canada
 resource "aws_vpc_peering_connection" "virginia_to_canada" {
-  provider = aws.virginia
+  provider = "aws.virginia"
   vpc_id = "${aws_vpc.virginia.id}"
   peer_vpc_id = "${aws_vpc.canada.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -1321,7 +1496,7 @@ resource "aws_vpc_peering_connection" "virginia_to_canada" {
 
 # connector: virginia, to: hongkong
 resource "aws_vpc_peering_connection" "virginia_to_hongkong" {
-  provider = aws.virginia
+  provider = "aws.virginia"
   vpc_id = "${aws_vpc.virginia.id}"
   peer_vpc_id = "${aws_vpc.hongkong.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -1335,7 +1510,7 @@ resource "aws_vpc_peering_connection" "virginia_to_hongkong" {
 
 # connector: virginia, to: mumbai
 resource "aws_vpc_peering_connection" "virginia_to_mumbai" {
-  provider = aws.virginia
+  provider = "aws.virginia"
   vpc_id = "${aws_vpc.virginia.id}"
   peer_vpc_id = "${aws_vpc.mumbai.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -1349,7 +1524,7 @@ resource "aws_vpc_peering_connection" "virginia_to_mumbai" {
 
 # connector: virginia, to: seoul
 resource "aws_vpc_peering_connection" "virginia_to_seoul" {
-  provider = aws.virginia
+  provider = "aws.virginia"
   vpc_id = "${aws_vpc.virginia.id}"
   peer_vpc_id = "${aws_vpc.seoul.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -1363,7 +1538,7 @@ resource "aws_vpc_peering_connection" "virginia_to_seoul" {
 
 # connector: virginia, to: singapore
 resource "aws_vpc_peering_connection" "virginia_to_singapore" {
-  provider = aws.virginia
+  provider = "aws.virginia"
   vpc_id = "${aws_vpc.virginia.id}"
   peer_vpc_id = "${aws_vpc.singapore.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -1377,7 +1552,7 @@ resource "aws_vpc_peering_connection" "virginia_to_singapore" {
 
 # connector: virginia, to: sydney
 resource "aws_vpc_peering_connection" "virginia_to_sydney" {
-  provider = aws.virginia
+  provider = "aws.virginia"
   vpc_id = "${aws_vpc.virginia.id}"
   peer_vpc_id = "${aws_vpc.sydney.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -1391,7 +1566,7 @@ resource "aws_vpc_peering_connection" "virginia_to_sydney" {
 
 # connector: virginia, to: tokio
 resource "aws_vpc_peering_connection" "virginia_to_tokio" {
-  provider = aws.virginia
+  provider = "aws.virginia"
   vpc_id = "${aws_vpc.virginia.id}"
   peer_vpc_id = "${aws_vpc.tokio.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -1405,7 +1580,7 @@ resource "aws_vpc_peering_connection" "virginia_to_tokio" {
 
 # connector: virginia, to: saopaulo
 resource "aws_vpc_peering_connection" "virginia_to_saopaulo" {
-  provider = aws.virginia
+  provider = "aws.virginia"
   vpc_id = "${aws_vpc.virginia.id}"
   peer_vpc_id = "${aws_vpc.saopaulo.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -1419,7 +1594,7 @@ resource "aws_vpc_peering_connection" "virginia_to_saopaulo" {
 
 # accepter: ohio, from: frankfurt
 resource "aws_vpc_peering_connection_accepter" "ohio_from_frankfurt" {
-  provider = aws.ohio
+  provider = "aws.ohio"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.frankfurt_to_ohio.id}"
   auto_accept = true
 
@@ -1430,7 +1605,7 @@ resource "aws_vpc_peering_connection_accepter" "ohio_from_frankfurt" {
 
 # accepter: ohio, from: ireland
 resource "aws_vpc_peering_connection_accepter" "ohio_from_ireland" {
-  provider = aws.ohio
+  provider = "aws.ohio"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.ireland_to_ohio.id}"
   auto_accept = true
 
@@ -1441,7 +1616,7 @@ resource "aws_vpc_peering_connection_accepter" "ohio_from_ireland" {
 
 # accepter: ohio, from: london
 resource "aws_vpc_peering_connection_accepter" "ohio_from_london" {
-  provider = aws.ohio
+  provider = "aws.ohio"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.london_to_ohio.id}"
   auto_accept = true
 
@@ -1452,7 +1627,7 @@ resource "aws_vpc_peering_connection_accepter" "ohio_from_london" {
 
 # accepter: ohio, from: paris
 resource "aws_vpc_peering_connection_accepter" "ohio_from_paris" {
-  provider = aws.ohio
+  provider = "aws.ohio"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.paris_to_ohio.id}"
   auto_accept = true
 
@@ -1463,7 +1638,7 @@ resource "aws_vpc_peering_connection_accepter" "ohio_from_paris" {
 
 # accepter: ohio, from: stockholm
 resource "aws_vpc_peering_connection_accepter" "ohio_from_stockholm" {
-  provider = aws.ohio
+  provider = "aws.ohio"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.stockholm_to_ohio.id}"
   auto_accept = true
 
@@ -1474,7 +1649,7 @@ resource "aws_vpc_peering_connection_accepter" "ohio_from_stockholm" {
 
 # accepter: ohio, from: virginia
 resource "aws_vpc_peering_connection_accepter" "ohio_from_virginia" {
-  provider = aws.ohio
+  provider = "aws.ohio"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.virginia_to_ohio.id}"
   auto_accept = true
 
@@ -1485,7 +1660,7 @@ resource "aws_vpc_peering_connection_accepter" "ohio_from_virginia" {
 
 # connector: ohio, to: california
 resource "aws_vpc_peering_connection" "ohio_to_california" {
-  provider = aws.ohio
+  provider = "aws.ohio"
   vpc_id = "${aws_vpc.ohio.id}"
   peer_vpc_id = "${aws_vpc.california.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -1499,7 +1674,7 @@ resource "aws_vpc_peering_connection" "ohio_to_california" {
 
 # connector: ohio, to: oregon
 resource "aws_vpc_peering_connection" "ohio_to_oregon" {
-  provider = aws.ohio
+  provider = "aws.ohio"
   vpc_id = "${aws_vpc.ohio.id}"
   peer_vpc_id = "${aws_vpc.oregon.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -1513,7 +1688,7 @@ resource "aws_vpc_peering_connection" "ohio_to_oregon" {
 
 # connector: ohio, to: canada
 resource "aws_vpc_peering_connection" "ohio_to_canada" {
-  provider = aws.ohio
+  provider = "aws.ohio"
   vpc_id = "${aws_vpc.ohio.id}"
   peer_vpc_id = "${aws_vpc.canada.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -1527,7 +1702,7 @@ resource "aws_vpc_peering_connection" "ohio_to_canada" {
 
 # connector: ohio, to: hongkong
 resource "aws_vpc_peering_connection" "ohio_to_hongkong" {
-  provider = aws.ohio
+  provider = "aws.ohio"
   vpc_id = "${aws_vpc.ohio.id}"
   peer_vpc_id = "${aws_vpc.hongkong.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -1541,7 +1716,7 @@ resource "aws_vpc_peering_connection" "ohio_to_hongkong" {
 
 # connector: ohio, to: mumbai
 resource "aws_vpc_peering_connection" "ohio_to_mumbai" {
-  provider = aws.ohio
+  provider = "aws.ohio"
   vpc_id = "${aws_vpc.ohio.id}"
   peer_vpc_id = "${aws_vpc.mumbai.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -1555,7 +1730,7 @@ resource "aws_vpc_peering_connection" "ohio_to_mumbai" {
 
 # connector: ohio, to: seoul
 resource "aws_vpc_peering_connection" "ohio_to_seoul" {
-  provider = aws.ohio
+  provider = "aws.ohio"
   vpc_id = "${aws_vpc.ohio.id}"
   peer_vpc_id = "${aws_vpc.seoul.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -1569,7 +1744,7 @@ resource "aws_vpc_peering_connection" "ohio_to_seoul" {
 
 # connector: ohio, to: singapore
 resource "aws_vpc_peering_connection" "ohio_to_singapore" {
-  provider = aws.ohio
+  provider = "aws.ohio"
   vpc_id = "${aws_vpc.ohio.id}"
   peer_vpc_id = "${aws_vpc.singapore.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -1583,7 +1758,7 @@ resource "aws_vpc_peering_connection" "ohio_to_singapore" {
 
 # connector: ohio, to: sydney
 resource "aws_vpc_peering_connection" "ohio_to_sydney" {
-  provider = aws.ohio
+  provider = "aws.ohio"
   vpc_id = "${aws_vpc.ohio.id}"
   peer_vpc_id = "${aws_vpc.sydney.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -1597,7 +1772,7 @@ resource "aws_vpc_peering_connection" "ohio_to_sydney" {
 
 # connector: ohio, to: tokio
 resource "aws_vpc_peering_connection" "ohio_to_tokio" {
-  provider = aws.ohio
+  provider = "aws.ohio"
   vpc_id = "${aws_vpc.ohio.id}"
   peer_vpc_id = "${aws_vpc.tokio.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -1611,7 +1786,7 @@ resource "aws_vpc_peering_connection" "ohio_to_tokio" {
 
 # connector: ohio, to: saopaulo
 resource "aws_vpc_peering_connection" "ohio_to_saopaulo" {
-  provider = aws.ohio
+  provider = "aws.ohio"
   vpc_id = "${aws_vpc.ohio.id}"
   peer_vpc_id = "${aws_vpc.saopaulo.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -1625,7 +1800,7 @@ resource "aws_vpc_peering_connection" "ohio_to_saopaulo" {
 
 # accepter: california, from: frankfurt
 resource "aws_vpc_peering_connection_accepter" "california_from_frankfurt" {
-  provider = aws.california
+  provider = "aws.california"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.frankfurt_to_california.id}"
   auto_accept = true
 
@@ -1636,7 +1811,7 @@ resource "aws_vpc_peering_connection_accepter" "california_from_frankfurt" {
 
 # accepter: california, from: ireland
 resource "aws_vpc_peering_connection_accepter" "california_from_ireland" {
-  provider = aws.california
+  provider = "aws.california"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.ireland_to_california.id}"
   auto_accept = true
 
@@ -1647,7 +1822,7 @@ resource "aws_vpc_peering_connection_accepter" "california_from_ireland" {
 
 # accepter: california, from: london
 resource "aws_vpc_peering_connection_accepter" "california_from_london" {
-  provider = aws.california
+  provider = "aws.california"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.london_to_california.id}"
   auto_accept = true
 
@@ -1658,7 +1833,7 @@ resource "aws_vpc_peering_connection_accepter" "california_from_london" {
 
 # accepter: california, from: paris
 resource "aws_vpc_peering_connection_accepter" "california_from_paris" {
-  provider = aws.california
+  provider = "aws.california"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.paris_to_california.id}"
   auto_accept = true
 
@@ -1669,7 +1844,7 @@ resource "aws_vpc_peering_connection_accepter" "california_from_paris" {
 
 # accepter: california, from: stockholm
 resource "aws_vpc_peering_connection_accepter" "california_from_stockholm" {
-  provider = aws.california
+  provider = "aws.california"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.stockholm_to_california.id}"
   auto_accept = true
 
@@ -1680,7 +1855,7 @@ resource "aws_vpc_peering_connection_accepter" "california_from_stockholm" {
 
 # accepter: california, from: virginia
 resource "aws_vpc_peering_connection_accepter" "california_from_virginia" {
-  provider = aws.california
+  provider = "aws.california"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.virginia_to_california.id}"
   auto_accept = true
 
@@ -1691,7 +1866,7 @@ resource "aws_vpc_peering_connection_accepter" "california_from_virginia" {
 
 # accepter: california, from: ohio
 resource "aws_vpc_peering_connection_accepter" "california_from_ohio" {
-  provider = aws.california
+  provider = "aws.california"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.ohio_to_california.id}"
   auto_accept = true
 
@@ -1702,7 +1877,7 @@ resource "aws_vpc_peering_connection_accepter" "california_from_ohio" {
 
 # connector: california, to: oregon
 resource "aws_vpc_peering_connection" "california_to_oregon" {
-  provider = aws.california
+  provider = "aws.california"
   vpc_id = "${aws_vpc.california.id}"
   peer_vpc_id = "${aws_vpc.oregon.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -1716,7 +1891,7 @@ resource "aws_vpc_peering_connection" "california_to_oregon" {
 
 # connector: california, to: canada
 resource "aws_vpc_peering_connection" "california_to_canada" {
-  provider = aws.california
+  provider = "aws.california"
   vpc_id = "${aws_vpc.california.id}"
   peer_vpc_id = "${aws_vpc.canada.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -1730,7 +1905,7 @@ resource "aws_vpc_peering_connection" "california_to_canada" {
 
 # connector: california, to: hongkong
 resource "aws_vpc_peering_connection" "california_to_hongkong" {
-  provider = aws.california
+  provider = "aws.california"
   vpc_id = "${aws_vpc.california.id}"
   peer_vpc_id = "${aws_vpc.hongkong.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -1744,7 +1919,7 @@ resource "aws_vpc_peering_connection" "california_to_hongkong" {
 
 # connector: california, to: mumbai
 resource "aws_vpc_peering_connection" "california_to_mumbai" {
-  provider = aws.california
+  provider = "aws.california"
   vpc_id = "${aws_vpc.california.id}"
   peer_vpc_id = "${aws_vpc.mumbai.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -1758,7 +1933,7 @@ resource "aws_vpc_peering_connection" "california_to_mumbai" {
 
 # connector: california, to: seoul
 resource "aws_vpc_peering_connection" "california_to_seoul" {
-  provider = aws.california
+  provider = "aws.california"
   vpc_id = "${aws_vpc.california.id}"
   peer_vpc_id = "${aws_vpc.seoul.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -1772,7 +1947,7 @@ resource "aws_vpc_peering_connection" "california_to_seoul" {
 
 # connector: california, to: singapore
 resource "aws_vpc_peering_connection" "california_to_singapore" {
-  provider = aws.california
+  provider = "aws.california"
   vpc_id = "${aws_vpc.california.id}"
   peer_vpc_id = "${aws_vpc.singapore.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -1786,7 +1961,7 @@ resource "aws_vpc_peering_connection" "california_to_singapore" {
 
 # connector: california, to: sydney
 resource "aws_vpc_peering_connection" "california_to_sydney" {
-  provider = aws.california
+  provider = "aws.california"
   vpc_id = "${aws_vpc.california.id}"
   peer_vpc_id = "${aws_vpc.sydney.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -1800,7 +1975,7 @@ resource "aws_vpc_peering_connection" "california_to_sydney" {
 
 # connector: california, to: tokio
 resource "aws_vpc_peering_connection" "california_to_tokio" {
-  provider = aws.california
+  provider = "aws.california"
   vpc_id = "${aws_vpc.california.id}"
   peer_vpc_id = "${aws_vpc.tokio.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -1814,7 +1989,7 @@ resource "aws_vpc_peering_connection" "california_to_tokio" {
 
 # connector: california, to: saopaulo
 resource "aws_vpc_peering_connection" "california_to_saopaulo" {
-  provider = aws.california
+  provider = "aws.california"
   vpc_id = "${aws_vpc.california.id}"
   peer_vpc_id = "${aws_vpc.saopaulo.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -1828,7 +2003,7 @@ resource "aws_vpc_peering_connection" "california_to_saopaulo" {
 
 # accepter: oregon, from: frankfurt
 resource "aws_vpc_peering_connection_accepter" "oregon_from_frankfurt" {
-  provider = aws.oregon
+  provider = "aws.oregon"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.frankfurt_to_oregon.id}"
   auto_accept = true
 
@@ -1839,7 +2014,7 @@ resource "aws_vpc_peering_connection_accepter" "oregon_from_frankfurt" {
 
 # accepter: oregon, from: ireland
 resource "aws_vpc_peering_connection_accepter" "oregon_from_ireland" {
-  provider = aws.oregon
+  provider = "aws.oregon"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.ireland_to_oregon.id}"
   auto_accept = true
 
@@ -1850,7 +2025,7 @@ resource "aws_vpc_peering_connection_accepter" "oregon_from_ireland" {
 
 # accepter: oregon, from: london
 resource "aws_vpc_peering_connection_accepter" "oregon_from_london" {
-  provider = aws.oregon
+  provider = "aws.oregon"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.london_to_oregon.id}"
   auto_accept = true
 
@@ -1861,7 +2036,7 @@ resource "aws_vpc_peering_connection_accepter" "oregon_from_london" {
 
 # accepter: oregon, from: paris
 resource "aws_vpc_peering_connection_accepter" "oregon_from_paris" {
-  provider = aws.oregon
+  provider = "aws.oregon"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.paris_to_oregon.id}"
   auto_accept = true
 
@@ -1872,7 +2047,7 @@ resource "aws_vpc_peering_connection_accepter" "oregon_from_paris" {
 
 # accepter: oregon, from: stockholm
 resource "aws_vpc_peering_connection_accepter" "oregon_from_stockholm" {
-  provider = aws.oregon
+  provider = "aws.oregon"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.stockholm_to_oregon.id}"
   auto_accept = true
 
@@ -1883,7 +2058,7 @@ resource "aws_vpc_peering_connection_accepter" "oregon_from_stockholm" {
 
 # accepter: oregon, from: virginia
 resource "aws_vpc_peering_connection_accepter" "oregon_from_virginia" {
-  provider = aws.oregon
+  provider = "aws.oregon"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.virginia_to_oregon.id}"
   auto_accept = true
 
@@ -1894,7 +2069,7 @@ resource "aws_vpc_peering_connection_accepter" "oregon_from_virginia" {
 
 # accepter: oregon, from: ohio
 resource "aws_vpc_peering_connection_accepter" "oregon_from_ohio" {
-  provider = aws.oregon
+  provider = "aws.oregon"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.ohio_to_oregon.id}"
   auto_accept = true
 
@@ -1905,7 +2080,7 @@ resource "aws_vpc_peering_connection_accepter" "oregon_from_ohio" {
 
 # accepter: oregon, from: california
 resource "aws_vpc_peering_connection_accepter" "oregon_from_california" {
-  provider = aws.oregon
+  provider = "aws.oregon"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.california_to_oregon.id}"
   auto_accept = true
 
@@ -1916,7 +2091,7 @@ resource "aws_vpc_peering_connection_accepter" "oregon_from_california" {
 
 # connector: oregon, to: canada
 resource "aws_vpc_peering_connection" "oregon_to_canada" {
-  provider = aws.oregon
+  provider = "aws.oregon"
   vpc_id = "${aws_vpc.oregon.id}"
   peer_vpc_id = "${aws_vpc.canada.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -1930,7 +2105,7 @@ resource "aws_vpc_peering_connection" "oregon_to_canada" {
 
 # connector: oregon, to: hongkong
 resource "aws_vpc_peering_connection" "oregon_to_hongkong" {
-  provider = aws.oregon
+  provider = "aws.oregon"
   vpc_id = "${aws_vpc.oregon.id}"
   peer_vpc_id = "${aws_vpc.hongkong.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -1944,7 +2119,7 @@ resource "aws_vpc_peering_connection" "oregon_to_hongkong" {
 
 # connector: oregon, to: mumbai
 resource "aws_vpc_peering_connection" "oregon_to_mumbai" {
-  provider = aws.oregon
+  provider = "aws.oregon"
   vpc_id = "${aws_vpc.oregon.id}"
   peer_vpc_id = "${aws_vpc.mumbai.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -1958,7 +2133,7 @@ resource "aws_vpc_peering_connection" "oregon_to_mumbai" {
 
 # connector: oregon, to: seoul
 resource "aws_vpc_peering_connection" "oregon_to_seoul" {
-  provider = aws.oregon
+  provider = "aws.oregon"
   vpc_id = "${aws_vpc.oregon.id}"
   peer_vpc_id = "${aws_vpc.seoul.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -1972,7 +2147,7 @@ resource "aws_vpc_peering_connection" "oregon_to_seoul" {
 
 # connector: oregon, to: singapore
 resource "aws_vpc_peering_connection" "oregon_to_singapore" {
-  provider = aws.oregon
+  provider = "aws.oregon"
   vpc_id = "${aws_vpc.oregon.id}"
   peer_vpc_id = "${aws_vpc.singapore.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -1986,7 +2161,7 @@ resource "aws_vpc_peering_connection" "oregon_to_singapore" {
 
 # connector: oregon, to: sydney
 resource "aws_vpc_peering_connection" "oregon_to_sydney" {
-  provider = aws.oregon
+  provider = "aws.oregon"
   vpc_id = "${aws_vpc.oregon.id}"
   peer_vpc_id = "${aws_vpc.sydney.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -2000,7 +2175,7 @@ resource "aws_vpc_peering_connection" "oregon_to_sydney" {
 
 # connector: oregon, to: tokio
 resource "aws_vpc_peering_connection" "oregon_to_tokio" {
-  provider = aws.oregon
+  provider = "aws.oregon"
   vpc_id = "${aws_vpc.oregon.id}"
   peer_vpc_id = "${aws_vpc.tokio.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -2014,7 +2189,7 @@ resource "aws_vpc_peering_connection" "oregon_to_tokio" {
 
 # connector: oregon, to: saopaulo
 resource "aws_vpc_peering_connection" "oregon_to_saopaulo" {
-  provider = aws.oregon
+  provider = "aws.oregon"
   vpc_id = "${aws_vpc.oregon.id}"
   peer_vpc_id = "${aws_vpc.saopaulo.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -2028,7 +2203,7 @@ resource "aws_vpc_peering_connection" "oregon_to_saopaulo" {
 
 # accepter: canada, from: frankfurt
 resource "aws_vpc_peering_connection_accepter" "canada_from_frankfurt" {
-  provider = aws.canada
+  provider = "aws.canada"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.frankfurt_to_canada.id}"
   auto_accept = true
 
@@ -2039,7 +2214,7 @@ resource "aws_vpc_peering_connection_accepter" "canada_from_frankfurt" {
 
 # accepter: canada, from: ireland
 resource "aws_vpc_peering_connection_accepter" "canada_from_ireland" {
-  provider = aws.canada
+  provider = "aws.canada"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.ireland_to_canada.id}"
   auto_accept = true
 
@@ -2050,7 +2225,7 @@ resource "aws_vpc_peering_connection_accepter" "canada_from_ireland" {
 
 # accepter: canada, from: london
 resource "aws_vpc_peering_connection_accepter" "canada_from_london" {
-  provider = aws.canada
+  provider = "aws.canada"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.london_to_canada.id}"
   auto_accept = true
 
@@ -2061,7 +2236,7 @@ resource "aws_vpc_peering_connection_accepter" "canada_from_london" {
 
 # accepter: canada, from: paris
 resource "aws_vpc_peering_connection_accepter" "canada_from_paris" {
-  provider = aws.canada
+  provider = "aws.canada"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.paris_to_canada.id}"
   auto_accept = true
 
@@ -2072,7 +2247,7 @@ resource "aws_vpc_peering_connection_accepter" "canada_from_paris" {
 
 # accepter: canada, from: stockholm
 resource "aws_vpc_peering_connection_accepter" "canada_from_stockholm" {
-  provider = aws.canada
+  provider = "aws.canada"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.stockholm_to_canada.id}"
   auto_accept = true
 
@@ -2083,7 +2258,7 @@ resource "aws_vpc_peering_connection_accepter" "canada_from_stockholm" {
 
 # accepter: canada, from: virginia
 resource "aws_vpc_peering_connection_accepter" "canada_from_virginia" {
-  provider = aws.canada
+  provider = "aws.canada"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.virginia_to_canada.id}"
   auto_accept = true
 
@@ -2094,7 +2269,7 @@ resource "aws_vpc_peering_connection_accepter" "canada_from_virginia" {
 
 # accepter: canada, from: ohio
 resource "aws_vpc_peering_connection_accepter" "canada_from_ohio" {
-  provider = aws.canada
+  provider = "aws.canada"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.ohio_to_canada.id}"
   auto_accept = true
 
@@ -2105,7 +2280,7 @@ resource "aws_vpc_peering_connection_accepter" "canada_from_ohio" {
 
 # accepter: canada, from: california
 resource "aws_vpc_peering_connection_accepter" "canada_from_california" {
-  provider = aws.canada
+  provider = "aws.canada"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.california_to_canada.id}"
   auto_accept = true
 
@@ -2116,7 +2291,7 @@ resource "aws_vpc_peering_connection_accepter" "canada_from_california" {
 
 # accepter: canada, from: oregon
 resource "aws_vpc_peering_connection_accepter" "canada_from_oregon" {
-  provider = aws.canada
+  provider = "aws.canada"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.oregon_to_canada.id}"
   auto_accept = true
 
@@ -2127,7 +2302,7 @@ resource "aws_vpc_peering_connection_accepter" "canada_from_oregon" {
 
 # connector: canada, to: hongkong
 resource "aws_vpc_peering_connection" "canada_to_hongkong" {
-  provider = aws.canada
+  provider = "aws.canada"
   vpc_id = "${aws_vpc.canada.id}"
   peer_vpc_id = "${aws_vpc.hongkong.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -2141,7 +2316,7 @@ resource "aws_vpc_peering_connection" "canada_to_hongkong" {
 
 # connector: canada, to: mumbai
 resource "aws_vpc_peering_connection" "canada_to_mumbai" {
-  provider = aws.canada
+  provider = "aws.canada"
   vpc_id = "${aws_vpc.canada.id}"
   peer_vpc_id = "${aws_vpc.mumbai.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -2155,7 +2330,7 @@ resource "aws_vpc_peering_connection" "canada_to_mumbai" {
 
 # connector: canada, to: seoul
 resource "aws_vpc_peering_connection" "canada_to_seoul" {
-  provider = aws.canada
+  provider = "aws.canada"
   vpc_id = "${aws_vpc.canada.id}"
   peer_vpc_id = "${aws_vpc.seoul.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -2169,7 +2344,7 @@ resource "aws_vpc_peering_connection" "canada_to_seoul" {
 
 # connector: canada, to: singapore
 resource "aws_vpc_peering_connection" "canada_to_singapore" {
-  provider = aws.canada
+  provider = "aws.canada"
   vpc_id = "${aws_vpc.canada.id}"
   peer_vpc_id = "${aws_vpc.singapore.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -2183,7 +2358,7 @@ resource "aws_vpc_peering_connection" "canada_to_singapore" {
 
 # connector: canada, to: sydney
 resource "aws_vpc_peering_connection" "canada_to_sydney" {
-  provider = aws.canada
+  provider = "aws.canada"
   vpc_id = "${aws_vpc.canada.id}"
   peer_vpc_id = "${aws_vpc.sydney.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -2197,7 +2372,7 @@ resource "aws_vpc_peering_connection" "canada_to_sydney" {
 
 # connector: canada, to: tokio
 resource "aws_vpc_peering_connection" "canada_to_tokio" {
-  provider = aws.canada
+  provider = "aws.canada"
   vpc_id = "${aws_vpc.canada.id}"
   peer_vpc_id = "${aws_vpc.tokio.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -2211,7 +2386,7 @@ resource "aws_vpc_peering_connection" "canada_to_tokio" {
 
 # connector: canada, to: saopaulo
 resource "aws_vpc_peering_connection" "canada_to_saopaulo" {
-  provider = aws.canada
+  provider = "aws.canada"
   vpc_id = "${aws_vpc.canada.id}"
   peer_vpc_id = "${aws_vpc.saopaulo.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -2225,7 +2400,7 @@ resource "aws_vpc_peering_connection" "canada_to_saopaulo" {
 
 # accepter: hongkong, from: frankfurt
 resource "aws_vpc_peering_connection_accepter" "hongkong_from_frankfurt" {
-  provider = aws.hongkong
+  provider = "aws.hongkong"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.frankfurt_to_hongkong.id}"
   auto_accept = true
 
@@ -2236,7 +2411,7 @@ resource "aws_vpc_peering_connection_accepter" "hongkong_from_frankfurt" {
 
 # accepter: hongkong, from: ireland
 resource "aws_vpc_peering_connection_accepter" "hongkong_from_ireland" {
-  provider = aws.hongkong
+  provider = "aws.hongkong"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.ireland_to_hongkong.id}"
   auto_accept = true
 
@@ -2247,7 +2422,7 @@ resource "aws_vpc_peering_connection_accepter" "hongkong_from_ireland" {
 
 # accepter: hongkong, from: london
 resource "aws_vpc_peering_connection_accepter" "hongkong_from_london" {
-  provider = aws.hongkong
+  provider = "aws.hongkong"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.london_to_hongkong.id}"
   auto_accept = true
 
@@ -2258,7 +2433,7 @@ resource "aws_vpc_peering_connection_accepter" "hongkong_from_london" {
 
 # accepter: hongkong, from: paris
 resource "aws_vpc_peering_connection_accepter" "hongkong_from_paris" {
-  provider = aws.hongkong
+  provider = "aws.hongkong"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.paris_to_hongkong.id}"
   auto_accept = true
 
@@ -2269,7 +2444,7 @@ resource "aws_vpc_peering_connection_accepter" "hongkong_from_paris" {
 
 # accepter: hongkong, from: stockholm
 resource "aws_vpc_peering_connection_accepter" "hongkong_from_stockholm" {
-  provider = aws.hongkong
+  provider = "aws.hongkong"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.stockholm_to_hongkong.id}"
   auto_accept = true
 
@@ -2280,7 +2455,7 @@ resource "aws_vpc_peering_connection_accepter" "hongkong_from_stockholm" {
 
 # accepter: hongkong, from: virginia
 resource "aws_vpc_peering_connection_accepter" "hongkong_from_virginia" {
-  provider = aws.hongkong
+  provider = "aws.hongkong"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.virginia_to_hongkong.id}"
   auto_accept = true
 
@@ -2291,7 +2466,7 @@ resource "aws_vpc_peering_connection_accepter" "hongkong_from_virginia" {
 
 # accepter: hongkong, from: ohio
 resource "aws_vpc_peering_connection_accepter" "hongkong_from_ohio" {
-  provider = aws.hongkong
+  provider = "aws.hongkong"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.ohio_to_hongkong.id}"
   auto_accept = true
 
@@ -2302,7 +2477,7 @@ resource "aws_vpc_peering_connection_accepter" "hongkong_from_ohio" {
 
 # accepter: hongkong, from: california
 resource "aws_vpc_peering_connection_accepter" "hongkong_from_california" {
-  provider = aws.hongkong
+  provider = "aws.hongkong"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.california_to_hongkong.id}"
   auto_accept = true
 
@@ -2313,7 +2488,7 @@ resource "aws_vpc_peering_connection_accepter" "hongkong_from_california" {
 
 # accepter: hongkong, from: oregon
 resource "aws_vpc_peering_connection_accepter" "hongkong_from_oregon" {
-  provider = aws.hongkong
+  provider = "aws.hongkong"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.oregon_to_hongkong.id}"
   auto_accept = true
 
@@ -2324,7 +2499,7 @@ resource "aws_vpc_peering_connection_accepter" "hongkong_from_oregon" {
 
 # accepter: hongkong, from: canada
 resource "aws_vpc_peering_connection_accepter" "hongkong_from_canada" {
-  provider = aws.hongkong
+  provider = "aws.hongkong"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.canada_to_hongkong.id}"
   auto_accept = true
 
@@ -2335,7 +2510,7 @@ resource "aws_vpc_peering_connection_accepter" "hongkong_from_canada" {
 
 # connector: hongkong, to: mumbai
 resource "aws_vpc_peering_connection" "hongkong_to_mumbai" {
-  provider = aws.hongkong
+  provider = "aws.hongkong"
   vpc_id = "${aws_vpc.hongkong.id}"
   peer_vpc_id = "${aws_vpc.mumbai.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -2349,7 +2524,7 @@ resource "aws_vpc_peering_connection" "hongkong_to_mumbai" {
 
 # connector: hongkong, to: seoul
 resource "aws_vpc_peering_connection" "hongkong_to_seoul" {
-  provider = aws.hongkong
+  provider = "aws.hongkong"
   vpc_id = "${aws_vpc.hongkong.id}"
   peer_vpc_id = "${aws_vpc.seoul.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -2363,7 +2538,7 @@ resource "aws_vpc_peering_connection" "hongkong_to_seoul" {
 
 # connector: hongkong, to: singapore
 resource "aws_vpc_peering_connection" "hongkong_to_singapore" {
-  provider = aws.hongkong
+  provider = "aws.hongkong"
   vpc_id = "${aws_vpc.hongkong.id}"
   peer_vpc_id = "${aws_vpc.singapore.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -2377,7 +2552,7 @@ resource "aws_vpc_peering_connection" "hongkong_to_singapore" {
 
 # connector: hongkong, to: sydney
 resource "aws_vpc_peering_connection" "hongkong_to_sydney" {
-  provider = aws.hongkong
+  provider = "aws.hongkong"
   vpc_id = "${aws_vpc.hongkong.id}"
   peer_vpc_id = "${aws_vpc.sydney.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -2391,7 +2566,7 @@ resource "aws_vpc_peering_connection" "hongkong_to_sydney" {
 
 # connector: hongkong, to: tokio
 resource "aws_vpc_peering_connection" "hongkong_to_tokio" {
-  provider = aws.hongkong
+  provider = "aws.hongkong"
   vpc_id = "${aws_vpc.hongkong.id}"
   peer_vpc_id = "${aws_vpc.tokio.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -2405,7 +2580,7 @@ resource "aws_vpc_peering_connection" "hongkong_to_tokio" {
 
 # connector: hongkong, to: saopaulo
 resource "aws_vpc_peering_connection" "hongkong_to_saopaulo" {
-  provider = aws.hongkong
+  provider = "aws.hongkong"
   vpc_id = "${aws_vpc.hongkong.id}"
   peer_vpc_id = "${aws_vpc.saopaulo.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -2419,7 +2594,7 @@ resource "aws_vpc_peering_connection" "hongkong_to_saopaulo" {
 
 # accepter: mumbai, from: frankfurt
 resource "aws_vpc_peering_connection_accepter" "mumbai_from_frankfurt" {
-  provider = aws.mumbai
+  provider = "aws.mumbai"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.frankfurt_to_mumbai.id}"
   auto_accept = true
 
@@ -2430,7 +2605,7 @@ resource "aws_vpc_peering_connection_accepter" "mumbai_from_frankfurt" {
 
 # accepter: mumbai, from: ireland
 resource "aws_vpc_peering_connection_accepter" "mumbai_from_ireland" {
-  provider = aws.mumbai
+  provider = "aws.mumbai"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.ireland_to_mumbai.id}"
   auto_accept = true
 
@@ -2441,7 +2616,7 @@ resource "aws_vpc_peering_connection_accepter" "mumbai_from_ireland" {
 
 # accepter: mumbai, from: london
 resource "aws_vpc_peering_connection_accepter" "mumbai_from_london" {
-  provider = aws.mumbai
+  provider = "aws.mumbai"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.london_to_mumbai.id}"
   auto_accept = true
 
@@ -2452,7 +2627,7 @@ resource "aws_vpc_peering_connection_accepter" "mumbai_from_london" {
 
 # accepter: mumbai, from: paris
 resource "aws_vpc_peering_connection_accepter" "mumbai_from_paris" {
-  provider = aws.mumbai
+  provider = "aws.mumbai"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.paris_to_mumbai.id}"
   auto_accept = true
 
@@ -2463,7 +2638,7 @@ resource "aws_vpc_peering_connection_accepter" "mumbai_from_paris" {
 
 # accepter: mumbai, from: stockholm
 resource "aws_vpc_peering_connection_accepter" "mumbai_from_stockholm" {
-  provider = aws.mumbai
+  provider = "aws.mumbai"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.stockholm_to_mumbai.id}"
   auto_accept = true
 
@@ -2474,7 +2649,7 @@ resource "aws_vpc_peering_connection_accepter" "mumbai_from_stockholm" {
 
 # accepter: mumbai, from: virginia
 resource "aws_vpc_peering_connection_accepter" "mumbai_from_virginia" {
-  provider = aws.mumbai
+  provider = "aws.mumbai"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.virginia_to_mumbai.id}"
   auto_accept = true
 
@@ -2485,7 +2660,7 @@ resource "aws_vpc_peering_connection_accepter" "mumbai_from_virginia" {
 
 # accepter: mumbai, from: ohio
 resource "aws_vpc_peering_connection_accepter" "mumbai_from_ohio" {
-  provider = aws.mumbai
+  provider = "aws.mumbai"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.ohio_to_mumbai.id}"
   auto_accept = true
 
@@ -2496,7 +2671,7 @@ resource "aws_vpc_peering_connection_accepter" "mumbai_from_ohio" {
 
 # accepter: mumbai, from: california
 resource "aws_vpc_peering_connection_accepter" "mumbai_from_california" {
-  provider = aws.mumbai
+  provider = "aws.mumbai"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.california_to_mumbai.id}"
   auto_accept = true
 
@@ -2507,7 +2682,7 @@ resource "aws_vpc_peering_connection_accepter" "mumbai_from_california" {
 
 # accepter: mumbai, from: oregon
 resource "aws_vpc_peering_connection_accepter" "mumbai_from_oregon" {
-  provider = aws.mumbai
+  provider = "aws.mumbai"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.oregon_to_mumbai.id}"
   auto_accept = true
 
@@ -2518,7 +2693,7 @@ resource "aws_vpc_peering_connection_accepter" "mumbai_from_oregon" {
 
 # accepter: mumbai, from: canada
 resource "aws_vpc_peering_connection_accepter" "mumbai_from_canada" {
-  provider = aws.mumbai
+  provider = "aws.mumbai"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.canada_to_mumbai.id}"
   auto_accept = true
 
@@ -2529,7 +2704,7 @@ resource "aws_vpc_peering_connection_accepter" "mumbai_from_canada" {
 
 # accepter: mumbai, from: hongkong
 resource "aws_vpc_peering_connection_accepter" "mumbai_from_hongkong" {
-  provider = aws.mumbai
+  provider = "aws.mumbai"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.hongkong_to_mumbai.id}"
   auto_accept = true
 
@@ -2540,7 +2715,7 @@ resource "aws_vpc_peering_connection_accepter" "mumbai_from_hongkong" {
 
 # connector: mumbai, to: seoul
 resource "aws_vpc_peering_connection" "mumbai_to_seoul" {
-  provider = aws.mumbai
+  provider = "aws.mumbai"
   vpc_id = "${aws_vpc.mumbai.id}"
   peer_vpc_id = "${aws_vpc.seoul.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -2554,7 +2729,7 @@ resource "aws_vpc_peering_connection" "mumbai_to_seoul" {
 
 # connector: mumbai, to: singapore
 resource "aws_vpc_peering_connection" "mumbai_to_singapore" {
-  provider = aws.mumbai
+  provider = "aws.mumbai"
   vpc_id = "${aws_vpc.mumbai.id}"
   peer_vpc_id = "${aws_vpc.singapore.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -2568,7 +2743,7 @@ resource "aws_vpc_peering_connection" "mumbai_to_singapore" {
 
 # connector: mumbai, to: sydney
 resource "aws_vpc_peering_connection" "mumbai_to_sydney" {
-  provider = aws.mumbai
+  provider = "aws.mumbai"
   vpc_id = "${aws_vpc.mumbai.id}"
   peer_vpc_id = "${aws_vpc.sydney.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -2582,7 +2757,7 @@ resource "aws_vpc_peering_connection" "mumbai_to_sydney" {
 
 # connector: mumbai, to: tokio
 resource "aws_vpc_peering_connection" "mumbai_to_tokio" {
-  provider = aws.mumbai
+  provider = "aws.mumbai"
   vpc_id = "${aws_vpc.mumbai.id}"
   peer_vpc_id = "${aws_vpc.tokio.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -2596,7 +2771,7 @@ resource "aws_vpc_peering_connection" "mumbai_to_tokio" {
 
 # connector: mumbai, to: saopaulo
 resource "aws_vpc_peering_connection" "mumbai_to_saopaulo" {
-  provider = aws.mumbai
+  provider = "aws.mumbai"
   vpc_id = "${aws_vpc.mumbai.id}"
   peer_vpc_id = "${aws_vpc.saopaulo.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -2610,7 +2785,7 @@ resource "aws_vpc_peering_connection" "mumbai_to_saopaulo" {
 
 # accepter: seoul, from: frankfurt
 resource "aws_vpc_peering_connection_accepter" "seoul_from_frankfurt" {
-  provider = aws.seoul
+  provider = "aws.seoul"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.frankfurt_to_seoul.id}"
   auto_accept = true
 
@@ -2621,7 +2796,7 @@ resource "aws_vpc_peering_connection_accepter" "seoul_from_frankfurt" {
 
 # accepter: seoul, from: ireland
 resource "aws_vpc_peering_connection_accepter" "seoul_from_ireland" {
-  provider = aws.seoul
+  provider = "aws.seoul"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.ireland_to_seoul.id}"
   auto_accept = true
 
@@ -2632,7 +2807,7 @@ resource "aws_vpc_peering_connection_accepter" "seoul_from_ireland" {
 
 # accepter: seoul, from: london
 resource "aws_vpc_peering_connection_accepter" "seoul_from_london" {
-  provider = aws.seoul
+  provider = "aws.seoul"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.london_to_seoul.id}"
   auto_accept = true
 
@@ -2643,7 +2818,7 @@ resource "aws_vpc_peering_connection_accepter" "seoul_from_london" {
 
 # accepter: seoul, from: paris
 resource "aws_vpc_peering_connection_accepter" "seoul_from_paris" {
-  provider = aws.seoul
+  provider = "aws.seoul"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.paris_to_seoul.id}"
   auto_accept = true
 
@@ -2654,7 +2829,7 @@ resource "aws_vpc_peering_connection_accepter" "seoul_from_paris" {
 
 # accepter: seoul, from: stockholm
 resource "aws_vpc_peering_connection_accepter" "seoul_from_stockholm" {
-  provider = aws.seoul
+  provider = "aws.seoul"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.stockholm_to_seoul.id}"
   auto_accept = true
 
@@ -2665,7 +2840,7 @@ resource "aws_vpc_peering_connection_accepter" "seoul_from_stockholm" {
 
 # accepter: seoul, from: virginia
 resource "aws_vpc_peering_connection_accepter" "seoul_from_virginia" {
-  provider = aws.seoul
+  provider = "aws.seoul"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.virginia_to_seoul.id}"
   auto_accept = true
 
@@ -2676,7 +2851,7 @@ resource "aws_vpc_peering_connection_accepter" "seoul_from_virginia" {
 
 # accepter: seoul, from: ohio
 resource "aws_vpc_peering_connection_accepter" "seoul_from_ohio" {
-  provider = aws.seoul
+  provider = "aws.seoul"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.ohio_to_seoul.id}"
   auto_accept = true
 
@@ -2687,7 +2862,7 @@ resource "aws_vpc_peering_connection_accepter" "seoul_from_ohio" {
 
 # accepter: seoul, from: california
 resource "aws_vpc_peering_connection_accepter" "seoul_from_california" {
-  provider = aws.seoul
+  provider = "aws.seoul"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.california_to_seoul.id}"
   auto_accept = true
 
@@ -2698,7 +2873,7 @@ resource "aws_vpc_peering_connection_accepter" "seoul_from_california" {
 
 # accepter: seoul, from: oregon
 resource "aws_vpc_peering_connection_accepter" "seoul_from_oregon" {
-  provider = aws.seoul
+  provider = "aws.seoul"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.oregon_to_seoul.id}"
   auto_accept = true
 
@@ -2709,7 +2884,7 @@ resource "aws_vpc_peering_connection_accepter" "seoul_from_oregon" {
 
 # accepter: seoul, from: canada
 resource "aws_vpc_peering_connection_accepter" "seoul_from_canada" {
-  provider = aws.seoul
+  provider = "aws.seoul"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.canada_to_seoul.id}"
   auto_accept = true
 
@@ -2720,7 +2895,7 @@ resource "aws_vpc_peering_connection_accepter" "seoul_from_canada" {
 
 # accepter: seoul, from: hongkong
 resource "aws_vpc_peering_connection_accepter" "seoul_from_hongkong" {
-  provider = aws.seoul
+  provider = "aws.seoul"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.hongkong_to_seoul.id}"
   auto_accept = true
 
@@ -2731,7 +2906,7 @@ resource "aws_vpc_peering_connection_accepter" "seoul_from_hongkong" {
 
 # accepter: seoul, from: mumbai
 resource "aws_vpc_peering_connection_accepter" "seoul_from_mumbai" {
-  provider = aws.seoul
+  provider = "aws.seoul"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.mumbai_to_seoul.id}"
   auto_accept = true
 
@@ -2742,7 +2917,7 @@ resource "aws_vpc_peering_connection_accepter" "seoul_from_mumbai" {
 
 # connector: seoul, to: singapore
 resource "aws_vpc_peering_connection" "seoul_to_singapore" {
-  provider = aws.seoul
+  provider = "aws.seoul"
   vpc_id = "${aws_vpc.seoul.id}"
   peer_vpc_id = "${aws_vpc.singapore.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -2756,7 +2931,7 @@ resource "aws_vpc_peering_connection" "seoul_to_singapore" {
 
 # connector: seoul, to: sydney
 resource "aws_vpc_peering_connection" "seoul_to_sydney" {
-  provider = aws.seoul
+  provider = "aws.seoul"
   vpc_id = "${aws_vpc.seoul.id}"
   peer_vpc_id = "${aws_vpc.sydney.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -2770,7 +2945,7 @@ resource "aws_vpc_peering_connection" "seoul_to_sydney" {
 
 # connector: seoul, to: tokio
 resource "aws_vpc_peering_connection" "seoul_to_tokio" {
-  provider = aws.seoul
+  provider = "aws.seoul"
   vpc_id = "${aws_vpc.seoul.id}"
   peer_vpc_id = "${aws_vpc.tokio.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -2784,7 +2959,7 @@ resource "aws_vpc_peering_connection" "seoul_to_tokio" {
 
 # connector: seoul, to: saopaulo
 resource "aws_vpc_peering_connection" "seoul_to_saopaulo" {
-  provider = aws.seoul
+  provider = "aws.seoul"
   vpc_id = "${aws_vpc.seoul.id}"
   peer_vpc_id = "${aws_vpc.saopaulo.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -2798,7 +2973,7 @@ resource "aws_vpc_peering_connection" "seoul_to_saopaulo" {
 
 # accepter: singapore, from: frankfurt
 resource "aws_vpc_peering_connection_accepter" "singapore_from_frankfurt" {
-  provider = aws.singapore
+  provider = "aws.singapore"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.frankfurt_to_singapore.id}"
   auto_accept = true
 
@@ -2809,7 +2984,7 @@ resource "aws_vpc_peering_connection_accepter" "singapore_from_frankfurt" {
 
 # accepter: singapore, from: ireland
 resource "aws_vpc_peering_connection_accepter" "singapore_from_ireland" {
-  provider = aws.singapore
+  provider = "aws.singapore"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.ireland_to_singapore.id}"
   auto_accept = true
 
@@ -2820,7 +2995,7 @@ resource "aws_vpc_peering_connection_accepter" "singapore_from_ireland" {
 
 # accepter: singapore, from: london
 resource "aws_vpc_peering_connection_accepter" "singapore_from_london" {
-  provider = aws.singapore
+  provider = "aws.singapore"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.london_to_singapore.id}"
   auto_accept = true
 
@@ -2831,7 +3006,7 @@ resource "aws_vpc_peering_connection_accepter" "singapore_from_london" {
 
 # accepter: singapore, from: paris
 resource "aws_vpc_peering_connection_accepter" "singapore_from_paris" {
-  provider = aws.singapore
+  provider = "aws.singapore"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.paris_to_singapore.id}"
   auto_accept = true
 
@@ -2842,7 +3017,7 @@ resource "aws_vpc_peering_connection_accepter" "singapore_from_paris" {
 
 # accepter: singapore, from: stockholm
 resource "aws_vpc_peering_connection_accepter" "singapore_from_stockholm" {
-  provider = aws.singapore
+  provider = "aws.singapore"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.stockholm_to_singapore.id}"
   auto_accept = true
 
@@ -2853,7 +3028,7 @@ resource "aws_vpc_peering_connection_accepter" "singapore_from_stockholm" {
 
 # accepter: singapore, from: virginia
 resource "aws_vpc_peering_connection_accepter" "singapore_from_virginia" {
-  provider = aws.singapore
+  provider = "aws.singapore"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.virginia_to_singapore.id}"
   auto_accept = true
 
@@ -2864,7 +3039,7 @@ resource "aws_vpc_peering_connection_accepter" "singapore_from_virginia" {
 
 # accepter: singapore, from: ohio
 resource "aws_vpc_peering_connection_accepter" "singapore_from_ohio" {
-  provider = aws.singapore
+  provider = "aws.singapore"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.ohio_to_singapore.id}"
   auto_accept = true
 
@@ -2875,7 +3050,7 @@ resource "aws_vpc_peering_connection_accepter" "singapore_from_ohio" {
 
 # accepter: singapore, from: california
 resource "aws_vpc_peering_connection_accepter" "singapore_from_california" {
-  provider = aws.singapore
+  provider = "aws.singapore"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.california_to_singapore.id}"
   auto_accept = true
 
@@ -2886,7 +3061,7 @@ resource "aws_vpc_peering_connection_accepter" "singapore_from_california" {
 
 # accepter: singapore, from: oregon
 resource "aws_vpc_peering_connection_accepter" "singapore_from_oregon" {
-  provider = aws.singapore
+  provider = "aws.singapore"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.oregon_to_singapore.id}"
   auto_accept = true
 
@@ -2897,7 +3072,7 @@ resource "aws_vpc_peering_connection_accepter" "singapore_from_oregon" {
 
 # accepter: singapore, from: canada
 resource "aws_vpc_peering_connection_accepter" "singapore_from_canada" {
-  provider = aws.singapore
+  provider = "aws.singapore"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.canada_to_singapore.id}"
   auto_accept = true
 
@@ -2908,7 +3083,7 @@ resource "aws_vpc_peering_connection_accepter" "singapore_from_canada" {
 
 # accepter: singapore, from: hongkong
 resource "aws_vpc_peering_connection_accepter" "singapore_from_hongkong" {
-  provider = aws.singapore
+  provider = "aws.singapore"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.hongkong_to_singapore.id}"
   auto_accept = true
 
@@ -2919,7 +3094,7 @@ resource "aws_vpc_peering_connection_accepter" "singapore_from_hongkong" {
 
 # accepter: singapore, from: mumbai
 resource "aws_vpc_peering_connection_accepter" "singapore_from_mumbai" {
-  provider = aws.singapore
+  provider = "aws.singapore"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.mumbai_to_singapore.id}"
   auto_accept = true
 
@@ -2930,7 +3105,7 @@ resource "aws_vpc_peering_connection_accepter" "singapore_from_mumbai" {
 
 # accepter: singapore, from: seoul
 resource "aws_vpc_peering_connection_accepter" "singapore_from_seoul" {
-  provider = aws.singapore
+  provider = "aws.singapore"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.seoul_to_singapore.id}"
   auto_accept = true
 
@@ -2941,7 +3116,7 @@ resource "aws_vpc_peering_connection_accepter" "singapore_from_seoul" {
 
 # connector: singapore, to: sydney
 resource "aws_vpc_peering_connection" "singapore_to_sydney" {
-  provider = aws.singapore
+  provider = "aws.singapore"
   vpc_id = "${aws_vpc.singapore.id}"
   peer_vpc_id = "${aws_vpc.sydney.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -2955,7 +3130,7 @@ resource "aws_vpc_peering_connection" "singapore_to_sydney" {
 
 # connector: singapore, to: tokio
 resource "aws_vpc_peering_connection" "singapore_to_tokio" {
-  provider = aws.singapore
+  provider = "aws.singapore"
   vpc_id = "${aws_vpc.singapore.id}"
   peer_vpc_id = "${aws_vpc.tokio.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -2969,7 +3144,7 @@ resource "aws_vpc_peering_connection" "singapore_to_tokio" {
 
 # connector: singapore, to: saopaulo
 resource "aws_vpc_peering_connection" "singapore_to_saopaulo" {
-  provider = aws.singapore
+  provider = "aws.singapore"
   vpc_id = "${aws_vpc.singapore.id}"
   peer_vpc_id = "${aws_vpc.saopaulo.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -2983,7 +3158,7 @@ resource "aws_vpc_peering_connection" "singapore_to_saopaulo" {
 
 # accepter: sydney, from: frankfurt
 resource "aws_vpc_peering_connection_accepter" "sydney_from_frankfurt" {
-  provider = aws.sydney
+  provider = "aws.sydney"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.frankfurt_to_sydney.id}"
   auto_accept = true
 
@@ -2994,7 +3169,7 @@ resource "aws_vpc_peering_connection_accepter" "sydney_from_frankfurt" {
 
 # accepter: sydney, from: ireland
 resource "aws_vpc_peering_connection_accepter" "sydney_from_ireland" {
-  provider = aws.sydney
+  provider = "aws.sydney"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.ireland_to_sydney.id}"
   auto_accept = true
 
@@ -3005,7 +3180,7 @@ resource "aws_vpc_peering_connection_accepter" "sydney_from_ireland" {
 
 # accepter: sydney, from: london
 resource "aws_vpc_peering_connection_accepter" "sydney_from_london" {
-  provider = aws.sydney
+  provider = "aws.sydney"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.london_to_sydney.id}"
   auto_accept = true
 
@@ -3016,7 +3191,7 @@ resource "aws_vpc_peering_connection_accepter" "sydney_from_london" {
 
 # accepter: sydney, from: paris
 resource "aws_vpc_peering_connection_accepter" "sydney_from_paris" {
-  provider = aws.sydney
+  provider = "aws.sydney"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.paris_to_sydney.id}"
   auto_accept = true
 
@@ -3027,7 +3202,7 @@ resource "aws_vpc_peering_connection_accepter" "sydney_from_paris" {
 
 # accepter: sydney, from: stockholm
 resource "aws_vpc_peering_connection_accepter" "sydney_from_stockholm" {
-  provider = aws.sydney
+  provider = "aws.sydney"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.stockholm_to_sydney.id}"
   auto_accept = true
 
@@ -3038,7 +3213,7 @@ resource "aws_vpc_peering_connection_accepter" "sydney_from_stockholm" {
 
 # accepter: sydney, from: virginia
 resource "aws_vpc_peering_connection_accepter" "sydney_from_virginia" {
-  provider = aws.sydney
+  provider = "aws.sydney"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.virginia_to_sydney.id}"
   auto_accept = true
 
@@ -3049,7 +3224,7 @@ resource "aws_vpc_peering_connection_accepter" "sydney_from_virginia" {
 
 # accepter: sydney, from: ohio
 resource "aws_vpc_peering_connection_accepter" "sydney_from_ohio" {
-  provider = aws.sydney
+  provider = "aws.sydney"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.ohio_to_sydney.id}"
   auto_accept = true
 
@@ -3060,7 +3235,7 @@ resource "aws_vpc_peering_connection_accepter" "sydney_from_ohio" {
 
 # accepter: sydney, from: california
 resource "aws_vpc_peering_connection_accepter" "sydney_from_california" {
-  provider = aws.sydney
+  provider = "aws.sydney"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.california_to_sydney.id}"
   auto_accept = true
 
@@ -3071,7 +3246,7 @@ resource "aws_vpc_peering_connection_accepter" "sydney_from_california" {
 
 # accepter: sydney, from: oregon
 resource "aws_vpc_peering_connection_accepter" "sydney_from_oregon" {
-  provider = aws.sydney
+  provider = "aws.sydney"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.oregon_to_sydney.id}"
   auto_accept = true
 
@@ -3082,7 +3257,7 @@ resource "aws_vpc_peering_connection_accepter" "sydney_from_oregon" {
 
 # accepter: sydney, from: canada
 resource "aws_vpc_peering_connection_accepter" "sydney_from_canada" {
-  provider = aws.sydney
+  provider = "aws.sydney"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.canada_to_sydney.id}"
   auto_accept = true
 
@@ -3093,7 +3268,7 @@ resource "aws_vpc_peering_connection_accepter" "sydney_from_canada" {
 
 # accepter: sydney, from: hongkong
 resource "aws_vpc_peering_connection_accepter" "sydney_from_hongkong" {
-  provider = aws.sydney
+  provider = "aws.sydney"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.hongkong_to_sydney.id}"
   auto_accept = true
 
@@ -3104,7 +3279,7 @@ resource "aws_vpc_peering_connection_accepter" "sydney_from_hongkong" {
 
 # accepter: sydney, from: mumbai
 resource "aws_vpc_peering_connection_accepter" "sydney_from_mumbai" {
-  provider = aws.sydney
+  provider = "aws.sydney"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.mumbai_to_sydney.id}"
   auto_accept = true
 
@@ -3115,7 +3290,7 @@ resource "aws_vpc_peering_connection_accepter" "sydney_from_mumbai" {
 
 # accepter: sydney, from: seoul
 resource "aws_vpc_peering_connection_accepter" "sydney_from_seoul" {
-  provider = aws.sydney
+  provider = "aws.sydney"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.seoul_to_sydney.id}"
   auto_accept = true
 
@@ -3126,7 +3301,7 @@ resource "aws_vpc_peering_connection_accepter" "sydney_from_seoul" {
 
 # accepter: sydney, from: singapore
 resource "aws_vpc_peering_connection_accepter" "sydney_from_singapore" {
-  provider = aws.sydney
+  provider = "aws.sydney"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.singapore_to_sydney.id}"
   auto_accept = true
 
@@ -3137,7 +3312,7 @@ resource "aws_vpc_peering_connection_accepter" "sydney_from_singapore" {
 
 # connector: sydney, to: tokio
 resource "aws_vpc_peering_connection" "sydney_to_tokio" {
-  provider = aws.sydney
+  provider = "aws.sydney"
   vpc_id = "${aws_vpc.sydney.id}"
   peer_vpc_id = "${aws_vpc.tokio.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -3151,7 +3326,7 @@ resource "aws_vpc_peering_connection" "sydney_to_tokio" {
 
 # connector: sydney, to: saopaulo
 resource "aws_vpc_peering_connection" "sydney_to_saopaulo" {
-  provider = aws.sydney
+  provider = "aws.sydney"
   vpc_id = "${aws_vpc.sydney.id}"
   peer_vpc_id = "${aws_vpc.saopaulo.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -3165,7 +3340,7 @@ resource "aws_vpc_peering_connection" "sydney_to_saopaulo" {
 
 # accepter: tokio, from: frankfurt
 resource "aws_vpc_peering_connection_accepter" "tokio_from_frankfurt" {
-  provider = aws.tokio
+  provider = "aws.tokio"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.frankfurt_to_tokio.id}"
   auto_accept = true
 
@@ -3176,7 +3351,7 @@ resource "aws_vpc_peering_connection_accepter" "tokio_from_frankfurt" {
 
 # accepter: tokio, from: ireland
 resource "aws_vpc_peering_connection_accepter" "tokio_from_ireland" {
-  provider = aws.tokio
+  provider = "aws.tokio"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.ireland_to_tokio.id}"
   auto_accept = true
 
@@ -3187,7 +3362,7 @@ resource "aws_vpc_peering_connection_accepter" "tokio_from_ireland" {
 
 # accepter: tokio, from: london
 resource "aws_vpc_peering_connection_accepter" "tokio_from_london" {
-  provider = aws.tokio
+  provider = "aws.tokio"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.london_to_tokio.id}"
   auto_accept = true
 
@@ -3198,7 +3373,7 @@ resource "aws_vpc_peering_connection_accepter" "tokio_from_london" {
 
 # accepter: tokio, from: paris
 resource "aws_vpc_peering_connection_accepter" "tokio_from_paris" {
-  provider = aws.tokio
+  provider = "aws.tokio"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.paris_to_tokio.id}"
   auto_accept = true
 
@@ -3209,7 +3384,7 @@ resource "aws_vpc_peering_connection_accepter" "tokio_from_paris" {
 
 # accepter: tokio, from: stockholm
 resource "aws_vpc_peering_connection_accepter" "tokio_from_stockholm" {
-  provider = aws.tokio
+  provider = "aws.tokio"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.stockholm_to_tokio.id}"
   auto_accept = true
 
@@ -3220,7 +3395,7 @@ resource "aws_vpc_peering_connection_accepter" "tokio_from_stockholm" {
 
 # accepter: tokio, from: virginia
 resource "aws_vpc_peering_connection_accepter" "tokio_from_virginia" {
-  provider = aws.tokio
+  provider = "aws.tokio"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.virginia_to_tokio.id}"
   auto_accept = true
 
@@ -3231,7 +3406,7 @@ resource "aws_vpc_peering_connection_accepter" "tokio_from_virginia" {
 
 # accepter: tokio, from: ohio
 resource "aws_vpc_peering_connection_accepter" "tokio_from_ohio" {
-  provider = aws.tokio
+  provider = "aws.tokio"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.ohio_to_tokio.id}"
   auto_accept = true
 
@@ -3242,7 +3417,7 @@ resource "aws_vpc_peering_connection_accepter" "tokio_from_ohio" {
 
 # accepter: tokio, from: california
 resource "aws_vpc_peering_connection_accepter" "tokio_from_california" {
-  provider = aws.tokio
+  provider = "aws.tokio"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.california_to_tokio.id}"
   auto_accept = true
 
@@ -3253,7 +3428,7 @@ resource "aws_vpc_peering_connection_accepter" "tokio_from_california" {
 
 # accepter: tokio, from: oregon
 resource "aws_vpc_peering_connection_accepter" "tokio_from_oregon" {
-  provider = aws.tokio
+  provider = "aws.tokio"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.oregon_to_tokio.id}"
   auto_accept = true
 
@@ -3264,7 +3439,7 @@ resource "aws_vpc_peering_connection_accepter" "tokio_from_oregon" {
 
 # accepter: tokio, from: canada
 resource "aws_vpc_peering_connection_accepter" "tokio_from_canada" {
-  provider = aws.tokio
+  provider = "aws.tokio"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.canada_to_tokio.id}"
   auto_accept = true
 
@@ -3275,7 +3450,7 @@ resource "aws_vpc_peering_connection_accepter" "tokio_from_canada" {
 
 # accepter: tokio, from: hongkong
 resource "aws_vpc_peering_connection_accepter" "tokio_from_hongkong" {
-  provider = aws.tokio
+  provider = "aws.tokio"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.hongkong_to_tokio.id}"
   auto_accept = true
 
@@ -3286,7 +3461,7 @@ resource "aws_vpc_peering_connection_accepter" "tokio_from_hongkong" {
 
 # accepter: tokio, from: mumbai
 resource "aws_vpc_peering_connection_accepter" "tokio_from_mumbai" {
-  provider = aws.tokio
+  provider = "aws.tokio"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.mumbai_to_tokio.id}"
   auto_accept = true
 
@@ -3297,7 +3472,7 @@ resource "aws_vpc_peering_connection_accepter" "tokio_from_mumbai" {
 
 # accepter: tokio, from: seoul
 resource "aws_vpc_peering_connection_accepter" "tokio_from_seoul" {
-  provider = aws.tokio
+  provider = "aws.tokio"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.seoul_to_tokio.id}"
   auto_accept = true
 
@@ -3308,7 +3483,7 @@ resource "aws_vpc_peering_connection_accepter" "tokio_from_seoul" {
 
 # accepter: tokio, from: singapore
 resource "aws_vpc_peering_connection_accepter" "tokio_from_singapore" {
-  provider = aws.tokio
+  provider = "aws.tokio"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.singapore_to_tokio.id}"
   auto_accept = true
 
@@ -3319,7 +3494,7 @@ resource "aws_vpc_peering_connection_accepter" "tokio_from_singapore" {
 
 # accepter: tokio, from: sydney
 resource "aws_vpc_peering_connection_accepter" "tokio_from_sydney" {
-  provider = aws.tokio
+  provider = "aws.tokio"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.sydney_to_tokio.id}"
   auto_accept = true
 
@@ -3330,7 +3505,7 @@ resource "aws_vpc_peering_connection_accepter" "tokio_from_sydney" {
 
 # connector: tokio, to: saopaulo
 resource "aws_vpc_peering_connection" "tokio_to_saopaulo" {
-  provider = aws.tokio
+  provider = "aws.tokio"
   vpc_id = "${aws_vpc.tokio.id}"
   peer_vpc_id = "${aws_vpc.saopaulo.id}"
   peer_owner_id = "${data.aws_caller_identity.main.account_id}"
@@ -3344,7 +3519,7 @@ resource "aws_vpc_peering_connection" "tokio_to_saopaulo" {
 
 # accepter: saopaulo, from: frankfurt
 resource "aws_vpc_peering_connection_accepter" "saopaulo_from_frankfurt" {
-  provider = aws.saopaulo
+  provider = "aws.saopaulo"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.frankfurt_to_saopaulo.id}"
   auto_accept = true
 
@@ -3355,7 +3530,7 @@ resource "aws_vpc_peering_connection_accepter" "saopaulo_from_frankfurt" {
 
 # accepter: saopaulo, from: ireland
 resource "aws_vpc_peering_connection_accepter" "saopaulo_from_ireland" {
-  provider = aws.saopaulo
+  provider = "aws.saopaulo"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.ireland_to_saopaulo.id}"
   auto_accept = true
 
@@ -3366,7 +3541,7 @@ resource "aws_vpc_peering_connection_accepter" "saopaulo_from_ireland" {
 
 # accepter: saopaulo, from: london
 resource "aws_vpc_peering_connection_accepter" "saopaulo_from_london" {
-  provider = aws.saopaulo
+  provider = "aws.saopaulo"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.london_to_saopaulo.id}"
   auto_accept = true
 
@@ -3377,7 +3552,7 @@ resource "aws_vpc_peering_connection_accepter" "saopaulo_from_london" {
 
 # accepter: saopaulo, from: paris
 resource "aws_vpc_peering_connection_accepter" "saopaulo_from_paris" {
-  provider = aws.saopaulo
+  provider = "aws.saopaulo"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.paris_to_saopaulo.id}"
   auto_accept = true
 
@@ -3388,7 +3563,7 @@ resource "aws_vpc_peering_connection_accepter" "saopaulo_from_paris" {
 
 # accepter: saopaulo, from: stockholm
 resource "aws_vpc_peering_connection_accepter" "saopaulo_from_stockholm" {
-  provider = aws.saopaulo
+  provider = "aws.saopaulo"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.stockholm_to_saopaulo.id}"
   auto_accept = true
 
@@ -3399,7 +3574,7 @@ resource "aws_vpc_peering_connection_accepter" "saopaulo_from_stockholm" {
 
 # accepter: saopaulo, from: virginia
 resource "aws_vpc_peering_connection_accepter" "saopaulo_from_virginia" {
-  provider = aws.saopaulo
+  provider = "aws.saopaulo"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.virginia_to_saopaulo.id}"
   auto_accept = true
 
@@ -3410,7 +3585,7 @@ resource "aws_vpc_peering_connection_accepter" "saopaulo_from_virginia" {
 
 # accepter: saopaulo, from: ohio
 resource "aws_vpc_peering_connection_accepter" "saopaulo_from_ohio" {
-  provider = aws.saopaulo
+  provider = "aws.saopaulo"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.ohio_to_saopaulo.id}"
   auto_accept = true
 
@@ -3421,7 +3596,7 @@ resource "aws_vpc_peering_connection_accepter" "saopaulo_from_ohio" {
 
 # accepter: saopaulo, from: california
 resource "aws_vpc_peering_connection_accepter" "saopaulo_from_california" {
-  provider = aws.saopaulo
+  provider = "aws.saopaulo"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.california_to_saopaulo.id}"
   auto_accept = true
 
@@ -3432,7 +3607,7 @@ resource "aws_vpc_peering_connection_accepter" "saopaulo_from_california" {
 
 # accepter: saopaulo, from: oregon
 resource "aws_vpc_peering_connection_accepter" "saopaulo_from_oregon" {
-  provider = aws.saopaulo
+  provider = "aws.saopaulo"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.oregon_to_saopaulo.id}"
   auto_accept = true
 
@@ -3443,7 +3618,7 @@ resource "aws_vpc_peering_connection_accepter" "saopaulo_from_oregon" {
 
 # accepter: saopaulo, from: canada
 resource "aws_vpc_peering_connection_accepter" "saopaulo_from_canada" {
-  provider = aws.saopaulo
+  provider = "aws.saopaulo"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.canada_to_saopaulo.id}"
   auto_accept = true
 
@@ -3454,7 +3629,7 @@ resource "aws_vpc_peering_connection_accepter" "saopaulo_from_canada" {
 
 # accepter: saopaulo, from: hongkong
 resource "aws_vpc_peering_connection_accepter" "saopaulo_from_hongkong" {
-  provider = aws.saopaulo
+  provider = "aws.saopaulo"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.hongkong_to_saopaulo.id}"
   auto_accept = true
 
@@ -3465,7 +3640,7 @@ resource "aws_vpc_peering_connection_accepter" "saopaulo_from_hongkong" {
 
 # accepter: saopaulo, from: mumbai
 resource "aws_vpc_peering_connection_accepter" "saopaulo_from_mumbai" {
-  provider = aws.saopaulo
+  provider = "aws.saopaulo"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.mumbai_to_saopaulo.id}"
   auto_accept = true
 
@@ -3476,7 +3651,7 @@ resource "aws_vpc_peering_connection_accepter" "saopaulo_from_mumbai" {
 
 # accepter: saopaulo, from: seoul
 resource "aws_vpc_peering_connection_accepter" "saopaulo_from_seoul" {
-  provider = aws.saopaulo
+  provider = "aws.saopaulo"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.seoul_to_saopaulo.id}"
   auto_accept = true
 
@@ -3487,7 +3662,7 @@ resource "aws_vpc_peering_connection_accepter" "saopaulo_from_seoul" {
 
 # accepter: saopaulo, from: singapore
 resource "aws_vpc_peering_connection_accepter" "saopaulo_from_singapore" {
-  provider = aws.saopaulo
+  provider = "aws.saopaulo"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.singapore_to_saopaulo.id}"
   auto_accept = true
 
@@ -3498,7 +3673,7 @@ resource "aws_vpc_peering_connection_accepter" "saopaulo_from_singapore" {
 
 # accepter: saopaulo, from: sydney
 resource "aws_vpc_peering_connection_accepter" "saopaulo_from_sydney" {
-  provider = aws.saopaulo
+  provider = "aws.saopaulo"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.sydney_to_saopaulo.id}"
   auto_accept = true
 
@@ -3509,7 +3684,7 @@ resource "aws_vpc_peering_connection_accepter" "saopaulo_from_sydney" {
 
 # accepter: saopaulo, from: tokio
 resource "aws_vpc_peering_connection_accepter" "saopaulo_from_tokio" {
-  provider = aws.saopaulo
+  provider = "aws.saopaulo"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.tokio_to_saopaulo.id}"
   auto_accept = true
 
