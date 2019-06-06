@@ -20,6 +20,6 @@ module "vpc" {
   providers = {
     aws.main = "aws.ireland"
   }
-  cidr_block = format("10.%s.0.0/16", coalesce([for x in var.regions: x.position if $
+  cidr_block = format("10.%s.0.0/16", coalesce([for x in var.regions: x.position if x.alias == "ireland"
 
 }
