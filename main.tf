@@ -12,7 +12,7 @@ provider "aws" {
 
 provider "aws" {
   alias = "ireland"
-  region = "${[for x in var.regions: x.region if x.alias == "ireland"]}"
+  region = [for x in var.regions: x.region if x.alias == "ireland"][0]
 }
 
 module "vpc_frankfurt" {
